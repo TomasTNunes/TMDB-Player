@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Player</title>
+    <link rel="icon" href="./icons/icon16.png" sizes="16x16">
+    <link rel="icon" href="./icons/icon48.png" sizes="48x48">
+    <link rel="icon" href="./icons/icon128.png" sizes="128x128">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #181818;
+            color: #fff;
+        }
+
+        iframe {
+            width: 80%;
+            height: 70vh;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            margin-top: 50px;
+            display: flex;
+            gap: 3vw; /* Dynamic spacing between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap when needed */
+            justify-content: center;
+        }
+
+        .server-button {
+            background: linear-gradient(135deg, #0093D1, #00B3A6);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 8vw; /* Set width relative to viewport width */
+            max-width: 140px; /* Limit maximum width */
+            min-width: 100px; /* Limit minimum width */
+        }
+
+        .server-button:hover {
+            background: linear-gradient(135deg, #0080B6, #009F91);
+            transform: translateY(-2px);
+        }
+
+        .server-button:active {
+            transform: translateY(0);
+        }
+
+        .server-button.selected {
+            background: linear-gradient(135deg, #006C92, #006C57);
+        }
+
+        /* Fullscreen button fixed size */
+        .fullscreen-button {
+            width: 200px; /* Fixed width */
+            height: 50px; /* Fixed height */
+        }
+    </style>
+</head>
+<body>
+    <iframe id="videoFrame" allowfullscreen></iframe>
+    <div class="buttons">
+        <button class="server-button" id="server1" onclick="changeServer(1)">Server 1</button>
+        <button class="server-button" id="server2" onclick="changeServer(2)">Server 2</button>
+        <button class="server-button" id="server3" onclick="changeServer(3)">Server 3</button>
+        <button class="server-button" id="server4" onclick="changeServer(4)">Server 4</button>
+    </div>
+
+    <script>
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+            const id = params.get('id');
+            
+            if (type === 'movie' && id) {
+                return { type: 'movie', id: id };
+            } else if (type === 'tv' && id && params.get('s') && params.get('e')) {
+                return { 
+                    type: 'tv', 
+                    id: id, 
+                    season: params.get('s'), 
+                    episode: params.get('e') 
+                };
+            }
+            return null;
+        }
+
+        function changeServer(serverNumber) {
+            const params = getURLParams();
+            if (!params) return;
+
+            let src = '';
+            if (params.type === 'movie') {
+                switch (serverNumber) {
+                    case 1: src = `https://moviesapi.club/movie/${params.id}`; break;
+                    case 2: src = `https://vidsrc.cc/v2/embed/movie/${params.id}?autoPlay=false`; break;
+                    case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break;
+                    case 4: src = `https://vidlink.pro/movie/${params.id}`; break;
+                }
+            } else if (params.type === 'tv') {
+                switch (serverNumber) {
+                    case 1: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break;
+                    case 2: src = `https://vidsrc.cc/v2/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break;
+                    case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break;
+                    case 4: src = `https://vidlink.pro/tv/${params.id}/${params.season}/${params.episode}`; break;
+                }
+            }
+            document.getElementById('videoFrame').src = src;
+
+            // Highlight the selected server button
+            const buttons = document.querySelectorAll('.buttons button');
+            buttons.forEach(button => button.classList.remove('selected'));
+            document.getElementById(`server${serverNumber}`).classList.add('selected');
+        }
+
+        // Load default server on page load
+        window.onload = () => changeServer(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "TMDB Custom Play Button",
+    "version": "1.0",
+    "description": "Adds a custom play button next to the trailer button on TMDB movie pages.",
+    "permissions": ["scripting"],
+    "host_permissions": ["https://www.themoviedb.org/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+        "matches": ["https://www.themoviedb.org/movie/*"],
+        "js": ["utils.js", "movie.js"]
+        },
+        {
+        "matches": ["https://www.themoviedb.org/tv/*"],
+        "js": ["utils.js", "tv.js"]
+        }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+  
