@@ -4,10 +4,14 @@
         // Find Movie TMDB ID
         const movieid = getTmdbIdFromUrl('movie');
 
-        // Find the "Play Trailer" button to place our custom button next to it
-        const trailerButton = document.querySelector('.play_trailer');
+        // Find the "Play Trailer" or "Watchlist" button to place our custom button next to it
+        let referenceButton = document.querySelector('.play_trailer');
 
-        if (trailerButton) {
+        if (!referenceButton) {
+        referenceButton = document.querySelector('.watchlist');
+        }
+
+        if (referenceButton) {
             // Create a new custom play button
             let customButton = document.createElement('button');
             customButton.innerText = 'Play';
@@ -29,7 +33,7 @@
             };
 
             // Insert our custom button next to the trailer button
-            trailerButton.parentElement.appendChild(customButton);
+            referenceButton.parentElement.appendChild(customButton);
 
         }
     }

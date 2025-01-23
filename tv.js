@@ -3,13 +3,17 @@
         // Find Movie TMDB ID
         const tvid = getTmdbIdFromUrl('tv');
 
-        // Find the "Play Trailer" button to place our custom button next to it
-        const trailerButton = document.querySelector('.play_trailer');
+        // Find the "Play Trailer" or "Watchlist" button to place our custom button next to it
+        let referenceButton = document.querySelector('.play_trailer');
 
+        if (!referenceButton) {
+        referenceButton = document.querySelector('.watchlist');
+        }
+        
         // Get Dictionary with seasons as keys and number of episodes as values
         const seasonEpisodes = await fetchTvShowData(tvid);
 
-        if (trailerButton) {
+        if (referenceButton) {
             // Create a new custom play button
             let customButton = document.createElement('button');
             customButton.innerText = 'Play';
@@ -31,7 +35,7 @@
             };
 
             // Insert our custom play button next to the trailer button
-            trailerButton.parentElement.appendChild(customButton);
+            referenceButton.parentElement.appendChild(customButton);
 
             // Create season selection dropdown
             let seasonSelect = document.createElement('select');
@@ -103,8 +107,8 @@
             });
 
             // Append season and episode selection to the trailer button container
-            trailerButton.parentElement.appendChild(seasonSelect);
-            trailerButton.parentElement.appendChild(episodeSelect);
+            referenceButton.parentElement.appendChild(seasonSelect);
+            referenceButton.parentElement.appendChild(episodeSelect);
 
             // Customize option elements via CSS
             const style = document.createElement('style');
