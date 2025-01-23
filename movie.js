@@ -2,7 +2,7 @@
     function addMovieButton() {
 
         // Find Movie TMDB ID
-        const movieNumber = getTmdbIdFromUrl('movie');
+        const movieid = getTmdbIdFromUrl('movie');
 
         // Find the "Play Trailer" button to place our custom button next to it
         const trailerButton = document.querySelector('.play_trailer');
@@ -10,20 +10,22 @@
         if (trailerButton) {
             // Create a new custom play button
             let customButton = document.createElement('button');
-            customButton.innerText = 'Custom Play';
+            customButton.innerText = 'Play';
             customButton.style.cssText = `
-                margin-left: 10px;
+                margin-left: 25px;
+                font-size: 16px;
                 padding: 10px 20px;
-                background-color: #ff4500;
+                background: #032541;
                 color: white;
                 border: none;
                 cursor: pointer;
-                border-radius: 5px;
+                border-radius: 20px;
+                font-weight: bold; /* Make the font bold */
             `;
 
             // Add event listener to open the new link
             customButton.onclick = function() {
-                window.open(`https://vidlink.pro/movie/${movieNumber}`, '_blank');
+                window.open(`https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}`, '_blank');
             };
 
             // Insert our custom button next to the trailer button
