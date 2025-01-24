@@ -8,7 +8,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 - **Custom Play Button:** Automatically adds a custom play button next to the existing TMDB "Play Trailer" button when viewing a movie or TV show page.
 - **Free Streaming:** Opens a new tab with a webpage to stream the selected movie or TV show.
-- **Multiple Streaming Servers:** Choose from four different video streaming servers (Server 1, Server 2, Server 3, Server 4). Server 1 is recommended for the best experience if available.
+- **Multiple Streaming Servers:** Choose from four different video streaming servers (Server 1, Server 2, Server 3, Server 4). Server 1 or Server 2 is recommended for the best experience if available.
 - **Minimal Ads:** While the TMDB site itself is ad-free, the player webpage may display minimal ads. Using an ad blocker is recommended for an uninterrupted experience.
 
 ---
@@ -42,8 +42,9 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 3. Click the "Play" button.
 4. A new tab will open with a webpage where you can stream the selected movie or TV show.
 5. Choose a streaming server:
-   - **Server 1** is recommended for the best experience.
-   - If Server 1 is unavailable, try other servers (Server 2, Server 3, Server 4).
+   - **Server 1** or **Server 2** is highly recommended for the best viewing experience, offering optimal quality and subtitles.
+   - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options or better streaming quality.
+   - If a server is unavailable or not functioning properly, try switching to another server until you find a suitable option.
 
 ---
 
