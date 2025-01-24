@@ -70,9 +70,9 @@ If you have any questions, issues, or recommendations, please feel free to conta
 
 ### Example: Custom Play Button
 
-![Custom Play Button](example/movieButton.png)
+![Custom Play Button](assets/screenshots/movieButton.png)
 
-![Custom Play Button Next to Trailer](example/tvShowButton.png)
+![Custom Play Button Next to Trailer](assets/screenshots/tvShowButton.png)
 
 ### Example: Streaming Page
-![Streaming Servers](example/player.png)
+![Streaming Servers](assets/screenshots/player.png)

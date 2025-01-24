@@ -11,29 +11,29 @@
     "https://www.themoviedb.org/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background/background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://www.themoviedb.org/movie/*"],
-      "js": ["utils.js", "movie.js"]
+      "js": ["src/content/utils.js", "src/content/movie.js"]
     },
     {
       "matches": ["https://www.themoviedb.org/tv/*"],
-      "js": ["utils.js", "tv.js"]
+      "js": ["src/content/utils.js", "src/content/tv.js"]
     }
   ],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": {
-      "16": "webpage/icons/icon16.png",
-      "48": "webpage/icons/icon48.png",
-      "128": "webpage/icons/icon128.png"
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
   },
   "icons": {
-    "16": "webpage/icons/icon16.png",
-    "48": "webpage/icons/icon48.png",
-    "128": "webpage/icons/icon128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 }
