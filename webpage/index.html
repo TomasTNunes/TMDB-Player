@@ -100,11 +100,15 @@
             }
             return null;
         }
-
+    
+        function redirectTowebsite() {
+            window.location.href = "https://github.com/TomasTNunes/TMDB-Player?tab=readme-ov-file#tmdb-player";
+        }
+    
         function changeServer(serverNumber) {
             const params = getURLParams();
             if (!params) return;
-
+    
             let src = '';
             if (params.type === 'movie') {
                 switch (serverNumber) {
@@ -122,15 +126,22 @@
                 }
             }
             document.getElementById('videoFrame').src = src;
-
+    
             // Highlight the selected server button
             const buttons = document.querySelectorAll('.buttons button');
             buttons.forEach(button => button.classList.remove('selected'));
             document.getElementById(`server${serverNumber}`).classList.add('selected');
         }
-
-        // Load default server on page load
-        window.onload = () => changeServer(1);
-    </script>
+    
+        // Redirect or load default server on page load
+        window.onload = () => {
+            const params = getURLParams();
+            if (!params) {
+                redirectTowebsite();
+            } else {
+                changeServer(1);
+            }
+        };
+    </script>    
 </body>
 </html>
