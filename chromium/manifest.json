@@ -4,8 +4,7 @@
   "version": "1.0",
   "description": "Adds a custom play button on TMDB pages to play movies and tv shows.",
   "permissions": [
-    "storage", 
-    "scripting"
+    "storage" 
   ],
   "host_permissions": [
     "https://www.themoviedb.org/*"
