@@ -50,7 +50,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 ## Recommendations
 
-- **Ad Blocker:** Although Server 1 has minimal ads, using an ad blocker is strongly recommended for a smoother streaming experience.
+- **Ad Blocker:** Although Server 1 and Server 2 have minimal ads, using an ad blocker is strongly recommended for a smoother streaming experience.
 - **Feedback and Support:** If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out.
 
 ---
