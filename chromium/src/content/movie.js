@@ -14,7 +14,7 @@
         if (referenceButton) {
             // Create a new custom play button
             let customButton = document.createElement('button');
-            customButton.innerText = 'Play';
+            customButton.textContent = 'Play';
             customButton.style.cssText = `
                 margin-left: 25px;
                 font-size: 16px;

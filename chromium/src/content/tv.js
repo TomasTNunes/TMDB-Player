@@ -7,7 +7,7 @@
         let referenceButton = document.querySelector('.play_trailer');
 
         if (!referenceButton) {
-        referenceButton = document.querySelector('.watchlist');
+            referenceButton = document.querySelector('.watchlist');
         }
         
         // Get Dictionary with seasons as keys and number of episodes as values
@@ -16,7 +16,7 @@
         if (referenceButton) {
             // Create a new custom play button
             let customButton = document.createElement('button');
-            customButton.innerText = 'Play';
+            customButton.textContent = 'Play';
             customButton.style.cssText = `
                 margin-left: 25px;
                 font-size: 16px;
@@ -31,7 +31,7 @@
 
             // Add event listener to open the new link
             customButton.onclick = function() {
-                window.open(`https://tmdbplayer.nunesnetwork.com/?type=tv&id=${tvid}&s=${selectedSeason}&e=${selectedEpisode}`, '_blank');
+                window.open(`https://tmdbplayer.nunesnetwork.com/?type=tv&id=${tvid}&s=${seasonSelect.value}&e=${episodeSelect.value}`, '_blank');
             };
 
             // Insert our custom play button next to the trailer button
@@ -53,13 +53,18 @@
                 -moz-appearance: none;
                 appearance: none;
             `;
-            seasonSelect.innerHTML = Object.keys(seasonEpisodes).map(season => 
-                `<option value="${season}" class="season-option">Season ${season}</option>`
-            ).join('');
+
+            // Create season options dynamically
+            Object.keys(seasonEpisodes).forEach(season => {
+                let option = document.createElement('option');
+                option.value = season;
+                option.className = 'season-option';
+                option.textContent = `Season ${season}`;
+                seasonSelect.appendChild(option);
+            });
 
             // Set default season (Season 1)
             seasonSelect.value = '1';
-            let selectedSeason = '1'; // Default selected season
 
             // Create episode selection dropdown
             let episodeSelect = document.createElement('select');
@@ -79,31 +84,27 @@
             `;
             
             // Set default episode (Episode 1)
-            episodeSelect.innerHTML = Array.from({ length: seasonEpisodes[selectedSeason] }, (_, i) => 
-                `<option value="${i + 1}" class="episode-option">Episode ${i + 1}</option>`
-            ).join('');
-            episodeSelect.value = '1'; // Default selected episode
-            let selectedEpisode = '1'; // Default selected episode
-            episodeSelect.disabled = false; // Enable episode selection initially
-
-            // Function to update episode dropdown based on selected season
             function updateEpisodeSelect() {
-                const episodes = seasonEpisodes[selectedSeason];
-                episodeSelect.innerHTML = Array.from({ length: episodes }, (_, i) => 
-                    `<option value="${i + 1}" class="episode-option">Episode ${i + 1}</option>`
-                ).join('');
+                // Clear current options
+                episodeSelect.innerHTML = ''; // Clear options before adding
+                const episodes = seasonEpisodes[seasonSelect.value];
+                for (let i = 1; i <= episodes; i++) {
+                    let option = document.createElement('option');
+                    option.value = i;
+                    option.className = 'episode-option';
+                    option.textContent = `Episode ${i}`;
+                    episodeSelect.appendChild(option);
+                }
                 episodeSelect.value = '1'; // Set default episode to Episode 1
-                selectedEpisode = episodeSelect.value;
             }
+
+            updateEpisodeSelect(); // Initialize episode dropdown
+
+            episodeSelect.disabled = false; // Enable episode selection initially
 
             // Event listeners for the select dropdowns
             seasonSelect.addEventListener('change', () => {
-                selectedSeason = seasonSelect.value;
                 updateEpisodeSelect();
-            });
-
-            episodeSelect.addEventListener('change', () => {
-                selectedEpisode = episodeSelect.value;
             });
 
             // Append season and episode selection to the trailer button container
@@ -112,7 +113,7 @@
 
             // Customize option elements via CSS
             const style = document.createElement('style');
-            style.innerHTML = `
+            style.textContent = `
                 .season-option, .episode-option {
                     background-color: #032541;
                     color: white;
