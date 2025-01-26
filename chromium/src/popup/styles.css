@@ -1,0 +1,42 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px; /* Added padding for spacing */
+    background-color: #2e3a47; /* TMDB dark background */
+    color: #ffffff; /* White text */
+    width: 250px; /* Set width of popup */
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Header Styles */
+h3 {
+    font-size: 20px;
+    color: #00b5e2; /* TMDB blue */
+    margin-top: 20px;
+}
+
+/* Button Styles */
+button {
+    padding: 12px 20px;
+    background-color: #00b5e2; /* TMDB blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0288d1; /* Darker blue for hover */
+}
+
+button:active {
+    background-color: #0277bd; /* Even darker blue when pressed */
+}
