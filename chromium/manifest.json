@@ -15,11 +15,13 @@
   "content_scripts": [
     {
       "matches": ["https://www.themoviedb.org/movie/*"],
-      "js": ["src/content/utils.js", "src/content/movie.js"]
+      "js": ["src/content/utils.js", "src/content/movie.js"],
+      "run_at": "document_end"
     },
     {
       "matches": ["https://www.themoviedb.org/tv/*"],
-      "js": ["src/content/utils.js", "src/content/tv.js"]
+      "js": ["src/content/utils.js", "src/content/tv.js"],
+      "run_at": "document_end"
     }
   ],
   "action": {
