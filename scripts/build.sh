@@ -1,11 +1,12 @@
-# Delete dist and Create new build
-rm -rf dist
+# Create new build
 rm -rf build
 mkdir build
 
+# Load constants
+source ./scripts/constants.sh
+
 # Build chromium
-mkdir build/chromium
-CHROMIUM_DIR="build/chromium"
+mkdir $CHROMIUM_DIR
 
 # Copy chromium manifest
 cp -r src/chromium/* $CHROMIUM_DIR
@@ -14,8 +15,7 @@ cp -r src/chromium/* $CHROMIUM_DIR
 cp -r src/assets/* $CHROMIUM_DIR
 
 # Build firefox
-mkdir build/firefox
-FIREFOX_DIR="build/firefox"
+mkdir $FIREFOX_DIR
 
 # Copy firefox manifest
 cp -r src/firefox/* $FIREFOX_DIR
