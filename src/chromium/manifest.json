@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "TMDB Player",
   "version": "1.0.0",
-  "description": "Adds a custom play button on TMDB pages to play movies and tv shows.",
+  "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
   "permissions": [
     "storage" 
   ],
