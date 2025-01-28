@@ -1,0 +1,25 @@
+name: Deploy Webpage to GitHub Pages
+
+on:
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 
+        with:
+          ref: master  # Always checkout the master branch
+
+      - name: Move webpage folder to root
+        run: |
+          mv webpage/* .
+          rm -r webpage
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
