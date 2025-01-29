@@ -31,7 +31,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 **Note:** Chromium-based browsers like Opera, Brave, Edge, etc., can also install the extension from the **Chrome Web Store**.
 
-### For iPhone (iOS) and iPad (iOS)
+### For iPhone (iOS) and iPad (iPadOS)
 
 1. Install the **Orion Browser** from the App Store:  
    [![Download Orion Browser on App Store](https://img.shields.io/badge/Download_Orion_Browser-007AFF?logo=app-store&logoColor=white)](https://apps.apple.com/us/app/orion-browser-by-kagi/id1484498200)  
@@ -53,7 +53,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 6. The TMDB Player extension will be added to your browser.
 
 #### For Firefox
-1. Download the `tmdb_player-firefox-x.x.x.xpi` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases).
+1. Download the `tmdb_player-firefox-x.x.x-signed.xpi` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases).
 2. Open Firefox and navigate to `about:addons`.
 3. Click on the gear icon and select **Install Add-on From File**.
 4. Choose the downloaded `.xpi` file to install the extension.
