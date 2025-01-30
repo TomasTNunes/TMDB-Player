@@ -1,5 +1,7 @@
 # TMDB Player
 
+![Social Preview](assets/socialpreview/socialpreview.png)
+
 TMDB Player is a browser extension designed to enhance your movie and TV show experience on the [TMDB website](https://www.themoviedb.org/). This extension adds a custom play button to TMDB pages, allowing you to stream movies and TV shows for free from various video streaming servers.
 
 ---
