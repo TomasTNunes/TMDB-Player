@@ -85,13 +85,13 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 ## License
 
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it.
+This project is licensed under the [MIT License](/LICENSE). Feel free to use, modify, and distribute it.
 
 ---
 
 ## Contact
 
-If you have any questions, issues, or recommendations, please feel free to contact the repository maintainer.
+If you have any questions, encounter issues, or have suggestions for improvements, please don't hesitate to reach out! You can contact the repository maintainer by opening an issue in the [Issues tab](https://github.com/TomasTNunes/TMDB-Player/issues). Your feedback is highly appreciated!
 
 ---
 
