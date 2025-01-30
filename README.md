@@ -1,6 +1,7 @@
 # TMDB Player
 
 ![Social Preview](assets/socialpreview/socialpreview.png)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-yellow?logo=google-chrome&logoColor=white)](https://chromewebstore.google.com/detail/jomgiognkiagcgfhnbajhkdccmmmmphk) [![Firefox Add-ons](https://img.shields.io/badge/Firefox_Add_ons-Install-orange?logo=firefox-browser&logoColor=white)](https://addons.mozilla.org/firefox/addon/tmdb-player/) [![Edge Add-ons](https://img.shields.io/badge/Edge_Add_ons-Install-blue?logo=microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/nioipgkkpacjdknpkochdpbhkcgefopi)
 
 TMDB Player is a browser extension designed to enhance your movie and TV show experience on the [TMDB website](https://www.themoviedb.org/). This extension adds a custom play button to TMDB pages, allowing you to stream movies and TV shows for free from various video streaming servers.
 
