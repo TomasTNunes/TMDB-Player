@@ -1,0 +1,22 @@
+{
+  "name": "tmdb-player",
+  "version": "1.0.0",
+  "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasTNunes/TMDB-Player.git"
+  },
+  "keywords": [],
+  "author": "TomasTNunes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TomasTNunes/TMDB-Player/issues"
+  },
+  "homepage": "https://github.com/TomasTNunes/TMDB-Player#readme",
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  }
+}
