@@ -26,7 +26,7 @@
                 border: none;
                 cursor: pointer;
                 border-radius: 20px;
-                font-weight: bold; /* Make the font bold */
+                font-weight: bold;
             `;
 
             // Add event listener to open the new link
@@ -34,13 +34,38 @@
                 window.open(`https://tmdbplayer.nunesnetwork.com/?type=tv&id=${tvid}&s=${seasonSelect.value}&e=${episodeSelect.value}`, '_blank');
             };
 
-            // Insert our custom play button next to the trailer button
-            referenceButton.parentElement.appendChild(customButton);
+            // Insert custom play Button
+            if (isMobile()) {
+                // On mobile, find the div with classes "trailer ml-2" or span with classes "certification".
+                let referenceElement = document.querySelector('div.trailer.ml-2');
+                if (!referenceElement) {
+                    referenceElement = document.querySelector('span.certification');
+                }
+
+                // Create a container div that will have the same parent as the referenceElement.
+                let buttonDiv = document.createElement('div');
+                buttonDiv.className = 'custom-play-container';
+
+                // As a block-level element, a div naturally occupies full width.
+                buttonDiv.style.width = '100%';
+                buttonDiv.style.marginTop = '8px';
+                buttonDiv.style.textAlign = 'center'; 
+        
+                // Append the custom play button into this container.
+                buttonDiv.appendChild(customButton);
+        
+                // Insert the container below the referenceElement.
+                referenceElement.parentElement.insertBefore(buttonDiv, referenceElement.nextSibling);
+            } else {
+                // Non-mobile: simply append the play button next to the reference button.
+                referenceButton.parentElement.appendChild(customButton);
+            }
 
             // Create season selection dropdown
             let seasonSelect = document.createElement('select');
             seasonSelect.style.cssText = `
                 margin-left: 25px;
+                margin-bottom: 0px;
                 font-size: 16px;
                 padding: 10px 20px;
                 background: #032541;
@@ -70,6 +95,7 @@
             let episodeSelect = document.createElement('select');
             episodeSelect.style.cssText = `
                 margin-left: 25px;
+                margin-bottom: 0px;
                 font-size: 16px;
                 padding: 10px 20px;
                 background: #032541;
@@ -107,9 +133,9 @@
                 updateEpisodeSelect();
             });
 
-            // Append season and episode selection to the trailer button container
-            referenceButton.parentElement.appendChild(seasonSelect);
-            referenceButton.parentElement.appendChild(episodeSelect);
+            // Append the season and episode dropdowns to the customButton parent.
+            customButton.parentElement.appendChild(seasonSelect);
+            customButton.parentElement.appendChild(episodeSelect);
 
             // Customize option elements via CSS
             const style = document.createElement('style');
