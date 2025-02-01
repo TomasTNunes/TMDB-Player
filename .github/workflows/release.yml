@@ -1,0 +1,69 @@
+name: Release Workflow
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22' # Change this to your Node.js version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Set up Git username and email
+      - name: Set Git user name and email
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      # Bump version and generate changelog
+      - name: Bump version and generate changelog
+        run: npx standard-version
+        
+      # Extract release notes for the current version from CHANGELOG.md
+      - name: Extract release notes
+        id: release-notes
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          RELEASE_NOTES=$(awk -v version="$VERSION" '$0 ~ "## \\[" version "\\]" {flag=1; next} $0 ~ "## \\[[0-9]+\\.[0-9]+\\.[0-9]+\\]" {flag=0} flag' CHANGELOG.md)
+          echo "$VERSION"
+          echo "$RELEASE_NOTES"
+          {
+            echo "RELEASE_NOTES<<EOF"
+            echo "$RELEASE_NOTES"
+            echo "EOF"
+          } >> $GITHUB_ENV
+          
+      # Push changes (version bump and tag) to the repository
+      - name: Push changes
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push --follow-tags origin master
+
+      # Run build to create release files in dist/*
+      - name: Run build
+        run: npm run build
+
+      # Create GitHub release with extracted release notes and attach dist files
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          tag_name: v${{ env.VERSION }}
+          body: ${{ env.RELEASE_NOTES }} # Use the extracted release notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
