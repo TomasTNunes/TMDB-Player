@@ -32,9 +32,33 @@
                 window.open(`https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}`, '_blank');
             };
 
-            // Insert our custom button next to the trailer button
-            referenceButton.parentElement.appendChild(customButton);
+            // Insert custom play Button
+            if (isMobile()) {
+                // On mobile, find the div with classes "trailer ml-2" or span with classes "certification".
+                let referenceElement = document.querySelector('div.trailer.ml-2');
+                if (!referenceElement) {
+                    referenceElement = document.querySelector('span.certification');
+                }
 
+                // Create a container div that will have the same parent as the referenceElement.
+                let buttonDiv = document.createElement('div');
+                buttonDiv.className = 'custom-play-container';
+
+                // As a block-level element, a div naturally occupies full width.
+                buttonDiv.style.width = '100%';
+                buttonDiv.style.marginTop = '8px';
+                buttonDiv.style.marginBottom = '8px';
+                buttonDiv.style.textAlign = 'center'; 
+        
+                // Append the custom play button into this container.
+                buttonDiv.appendChild(customButton);
+        
+                // Insert the container below the referenceElement.
+                referenceElement.parentElement.insertBefore(buttonDiv, referenceElement.nextSibling);
+            } else {
+                // Non-mobile: simply append the play button next to the reference button.
+                referenceButton.parentElement.appendChild(customButton);
+            }
         }
     }
 
