@@ -1,6 +1,6 @@
 {
   "name": "tmdb-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
   "scripts": {
     "build": "bash scripts/build.sh",

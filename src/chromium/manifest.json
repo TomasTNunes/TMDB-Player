@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "TMDB Player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
   "permissions": [
-    "storage" 
+    "storage"
   ],
   "host_permissions": [
     "https://www.themoviedb.org/*"
@@ -14,13 +14,23 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.themoviedb.org/movie/*"],
-      "js": ["content/utils.js", "content/movie.js"],
+      "matches": [
+        "https://www.themoviedb.org/movie/*"
+      ],
+      "js": [
+        "content/utils.js",
+        "content/movie.js"
+      ],
       "run_at": "document_end"
     },
     {
-      "matches": ["https://www.themoviedb.org/tv/*"],
-      "js": ["content/utils.js", "content/tv.js"],
+      "matches": [
+        "https://www.themoviedb.org/tv/*"
+      ],
+      "js": [
+        "content/utils.js",
+        "content/tv.js"
+      ],
       "run_at": "document_end"
     }
   ],
