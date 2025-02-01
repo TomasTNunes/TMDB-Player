@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
   "scripts": {
-    "build": "bash scripts/build.sh"
+    "build": "bash scripts/build.sh",
+    "lint-firefox": "web-ext lint -s build/firefox",
+    "test-firefox": "web-ext run -s build/firefox"
   },
   "repository": {
     "type": "git",
