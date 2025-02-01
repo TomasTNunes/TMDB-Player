@@ -32,6 +32,14 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           RELEASE_NOTES=$(awk -v version="$VERSION" '/## \[/{if ($0 ~ "## \\[" version "\\]") {flag=1; next} /## \[/{flag=0} flag' CHANGELOG.md)
           echo "::set-output name=RELEASE_NOTES::$RELEASE_NOTES"
+          
+      # Push changes (version bump and tag) to the repository
+      - name: Push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push --follow-tags origin master
 
       # Run build to create release files in dist/*
       - name: Run build
