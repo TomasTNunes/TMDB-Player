@@ -18,3 +18,5 @@ yarn-error.log*
 # production
 /build
 /dist
+
+README.pdf
