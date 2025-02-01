@@ -30,8 +30,8 @@ jobs:
         id: release-notes
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          RELEASE_NOTES=$(awk -v version="$VERSION" '/## \[/{if ($0 ~ "## \\[" version "\\]") {flag=1; next} /## \[/{flag=0} flag' CHANGELOG.md)
-          echo "::set-output name=RELEASE_NOTES::$RELEASE_NOTES"
+          RELEASE_NOTES=$(awk "/## $VERSION /{flag=1; next} /## [0-9]/{flag=0} flag" CHANGELOG.md)
+          echo "RELEASE_NOTES=$RELEASE_NOTES" >> $GITHUB_ENV
           
       # Push changes (version bump and tag) to the repository
       - name: Push changes
@@ -50,6 +50,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
-          body: ${{ steps.release-notes.outputs.RELEASE_NOTES }} # Use the extracted release notes
+          body: ${{ env.RELEASE_NOTES }} # Use the extracted release notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
