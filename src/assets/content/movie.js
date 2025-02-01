@@ -51,6 +51,7 @@
                 buttonDiv.style.textAlign = 'center'; 
         
                 // Append the custom play button into this container.
+                customButton.style.marginLeft = '0px';
                 buttonDiv.appendChild(customButton);
         
                 // Insert the container below the referenceElement.
