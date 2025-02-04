@@ -1,0 +1,27 @@
+{
+  "name": "tmdb-player",
+  "version": "1.1.0",
+  "description": "Adds a custom play button to TMDB pages, allowing users to stream movies and TV shows for free.",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "lint-firefox": "web-ext lint -s build/firefox",
+    "test-firefox": "web-ext run -s build/firefox",
+    "test-firefox-flatpak": "web-ext run -s build/firefox --firefox=flatpak:org.mozilla.firefox",
+    "test-firefox-android": "web-ext run -s build/firefox --target=firefox-android --firefox-apk=org.mozilla.fenix --android-device=emulator-5554"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasTNunes/TMDB-Player.git"
+  },
+  "keywords": [],
+  "author": "TomasTNunes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TomasTNunes/TMDB-Player/issues"
+  },
+  "homepage": "https://github.com/TomasTNunes/TMDB-Player#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0",
+    "web-ext": "^8.3.0"
+  }
+}

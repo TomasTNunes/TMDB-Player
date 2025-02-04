@@ -1,0 +1,20 @@
+{
+  "bumpFiles": [
+    {
+      "filename": "package.json",
+      "type": "json"
+    },
+    {
+      "filename": "package-lock.json",
+      "type": "json"
+    },
+    {
+      "filename": "src/chromium/manifest.json",
+      "type": "json"
+    },
+    {
+        "filename": "src/firefox/manifest.json",
+        "type": "json"
+    }
+  ]
+}
