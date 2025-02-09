@@ -187,17 +187,35 @@ body {
 
 @media (max-width: 1200px) {
     body {
-        overflow-y: auto;
+        overflow-y: auto; /* Allow the entire webpage to scroll vertically */
     }
 
     .content-wrapper {
         flex-direction: column; /* Stack primary and secondary content vertically */
         gap: 16px; /* Reduce gap between sections */
+        height: auto; /* Allow the content-wrapper to grow based on its content */
     }
 
-    .primary-content,
+    .primary-content {
+        width: 100%; /* Make primary content take full width */
+    }
+
     .secondary-content {
-        width: 100%; /* Make both sections take full width */
+        width: 100%; /* Make secondary content take full width */
+        height: auto; /* Allow secondary content to grow based on its content */
+        overflow: visible; /* Ensure no internal scrolling */
+    }
+
+    .sidebar {
+        height: auto; /* Allow sidebar to grow based on its content */
+    }
+
+    .servers {
+        height: auto; /* Allow servers to grow based on its content */
+    }
+
+    .server-grid {
+        height: auto; /* Allow server-grid to grow based on its content */
     }
 
     .player-content {
