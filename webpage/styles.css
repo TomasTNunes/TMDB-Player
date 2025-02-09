@@ -1,60 +1,159 @@
+/* General Styles */
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #0f0f0f; /* Webpage background color */
+    color: #ffffffe6; /* All font text color */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    padding: 24px;
+    gap: 24px;
+    height: calc(100vh - 48px); /* Full height minus padding */
+}
+
+/* Primary Content */
+.primary-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Player Header */
+.player-header {
+    background-color: black;
+    margin: 0 0 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px; /* Fixed height for player-header */
+    position: relative; /* Added for centering the title */
+}
+
+.git-button,
+.bug-button,
+.nextep-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    background-color: #1f1f1f; /* Button background color */
+    color: #ffffffe6; /* Button text color */
+    border-radius: 4px; /* Added border radius for buttons */
+}
+
+.git-button {
+    margin-right: 8px;
+}
+
+.bug-button {
+    margin-right: auto;
+}
+
+.show-title {
+    font-size: 20px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap; /* Prevents the title from wrapping */
+    position: absolute; /* Position the title absolutely */
+    left: 50%; /* Move the title to the center */
+    transform: translateX(-50%); /* Adjust for exact centering */
+}
+
+/* Player Content */
+.player-content {
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    background-color: #1f1f1f; /* Background color for player content */
+}
+
+#videoFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Secondary Content */
+.secondary-content {
+    width: 400px; /* Adjusted width for secondary-content */
+    overflow: hidden;
+    background-color: transparent; /* Transparent background for secondary-content */
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    background-color: #1f1f1f; /* Background color for sidebar */
+    border-radius: 12px; /* Added border radius for sidebar */
+}
+
+.servers {
+    padding: 16px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: transparent; /* Transparent background for movie-servers */
+}
+
+.servers-title {
+    font-size: 14px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    margin: 0 0 16px;
+}
+
+/* Server Grid */
+.server-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.server-card {
+    height: 62px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, .05); /* Border color for server-card */
+    border-radius: 8px;
+    background-color: #ffffff05; /* Transparent background for server-card */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.server-card:hover {
+    background: #ffffff0a; 
+    border-color: #ffffff1a; 
+    transform: translateY(-1px); 
+}
+
+.server-card.selected {
+    background: #ffffff0d; 
+    border-color: #ffffff30; 
+}
+
+.server-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #181818;
-    color: #fff;
 }
 
-iframe {
-    width: 80%;
-    height: 70vh;
-    border: none;
-    border-radius: 10px;
+.server-name {
+    font-size: 13px;
+    font-family: Arial;
+    color: #ffffffe6; /* Font color for server-name */
 }
 
-.buttons {
-    margin-top: 50px;
-    display: flex;
-    gap: 3vw; /* Dynamic spacing between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap when needed */
-    justify-content: center;
-}
-
-.server-button {
-    background: linear-gradient(135deg, #0093D1, #00B3A6);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 8vw; /* Set width relative to viewport width */
-    max-width: 140px; /* Limit maximum width */
-    min-width: 100px; /* Limit minimum width */
-}
-
-.server-button:hover {
-    background: linear-gradient(135deg, #0080B6, #009F91);
-    transform: translateY(-2px);
-}
-
-.server-button:active {
-    transform: translateY(0);
-}
-
-.server-button.selected {
-    background: linear-gradient(135deg, #006C92, #006C57);
-}
-
-/* Fullscreen button fixed size */
-.fullscreen-button {
-    width: 200px; /* Fixed width */
-    height: 50px; /* Fixed height */
+.server-label {
+    font-size: 11px;
+    font-family: Arial;
+    margin-top: 2px;
+    color: #ffffffb3; /* Font color for server-label */
 }
