@@ -184,3 +184,59 @@ body {
     margin-top: 2px;
     color: #ffffffb3; /* Font color for server-label */
 }
+
+@media (max-width: 1200px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack primary and secondary content vertically */
+        gap: 16px; /* Reduce gap between sections */
+    }
+
+    .primary-content,
+    .secondary-content {
+        width: 100%; /* Make both sections take full width */
+    }
+
+    .player-content {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625 or 56.25%) */
+    }
+
+    #videoFrame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .show-title {
+        font-size: 16px;
+    }
+
+    .git-button {
+        margin-right: 4px;
+    }
+    
+    .git-button i {
+        font-size: 30px; /* Adjusted GitHub icon size */
+    }
+    
+    .bug-button {
+        margin-right: auto;
+        font-size: 20px;
+    }
+    
+    .nextep-button svg {
+        width: 25px;
+        height: 25px;
+        transition: transform 0.2s ease;
+    }
+}
