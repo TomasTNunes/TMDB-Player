@@ -22,8 +22,8 @@
                 </a>
                 <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛
                 </a> <!-- Bug emoji -->
-                <h2 class="show-title">Title</h2>
-                <button class="nextep-button" title="Next Episode">
+                <h2 class="show-title" id="title"></h2>
+                <button class="nextep-button" title="Next Episode" id="nextep-button">
                     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" 
                             d="M22 3H20V21H22V3ZM4.28615 3.61729C3.28674 3.00228 2 3.7213 2 4.89478V19.1052C2 20.2787 3.28674 20.9977 4.28615 20.3827L15.8321 13.2775C16.7839 12.6918 16.7839 11.3082 15.8321 10.7225L4.28615 3.61729ZM4 18.2104V5.78956L14.092 12L4 18.2104Z" 
@@ -40,37 +40,37 @@
                 <div class="servers">
                     <h3 class="servers-title">AVAILABLE SERVERS</h3>
                     <div class="server-grid">
-                        <button class="server-card">
+                        <button class="server-card" id="server1" onclick="changeServer(1)">
                             <div class="server-info">
                                 <span class="server-name">Server 1</span>
                                 <span class="server-label">GG</span>
                             </div>
                         </button>
-                        <button class="server-card">
+                        <button class="server-card" id="server2" onclick="changeServer(2)">
                             <div class="server-info">
                                 <span class="server-name">Server 2</span>
                                 <span class="server-label">GG</span>
                             </div>
                         </button>
-                        <button class="server-card">
+                        <button class="server-card" id="server3" onclick="changeServer(3)">
                             <div class="server-info">
                                 <span class="server-name">Server 3</span>
                                 <span class="server-label">GG</span>
                             </div>
                         </button>
-                        <button class="server-card">
+                        <button class="server-card" id="server4" onclick="changeServer(4)">
                             <div class="server-info">
                                 <span class="server-name">Server 4</span>
                                 <span class="server-label">GG</span>
                             </div>
                         </button>
-                        <button class="server-card">
+                        <button class="server-card" id="server5" onclick="changeServer(5)">
                             <div class="server-info">
                                 <span class="server-name">Server 5</span>
                                 <span class="server-label">GG</span>
                             </div>
                         </button>
-                        <button class="server-card">
+                        <button class="server-card" id="server6" onclick="changeServer(6)">
                             <div class="server-info">
                                 <span class="server-name">Server 6</span>
                                 <span class="server-label">GG</span>
@@ -81,5 +81,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
