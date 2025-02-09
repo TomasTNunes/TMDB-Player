@@ -10,16 +10,26 @@
     <link rel="icon" href="./icons/icon128.png" sizes="128x128">
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome for GitHub icon -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="content-wrapper">
         <div class="primary-content">
             <header class="player-header">
-                <button class="git-button">GIT</button>
-                <button class="bug-button">BUG</button>
+                <a href="https://github.com/your-username" target="_blank" class="git-button" title="GitHub">
+                    <i class="fab fa-github"></i> <!-- GitHub icon -->
+                </a>
+                <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛
+                </a> <!-- Bug emoji -->
                 <h2 class="show-title">Insurgent</h2>
-                <button class="nextep-button">NEXTEP</button>
+                <button class="nextep-button" title="Next Episode">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" 
+                            d="M22 3H20V21H22V3ZM4.28615 3.61729C3.28674 3.00228 2 3.7213 2 4.89478V19.1052C2 20.2787 3.28674 20.9977 4.28615 20.3827L15.8321 13.2775C16.7839 12.6918 16.7839 11.3082 15.8321 10.7225L4.28615 3.61729ZM4 18.2104V5.78956L14.092 12L4 18.2104Z" 
+                            fill="white"/>
+                    </svg>
+                </button>                
             </header>
             <main class="player-content">
                 <iframe id="videoFrame" allowfullscreen></iframe>
@@ -51,6 +61,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </body>
 </html>
