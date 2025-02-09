@@ -127,8 +127,10 @@ window.onload = async () => {
                 nextEpButton.style.display = 'flex'; 
                 nextEpButton.disabled = false;
                 nextEpButton.addEventListener('click', () => {
-                    const nextEpisodeUrl = `https://tmdb.nunesnetwork.com/?type=tv&id=${params.id}&s=${nextEpS}&e=${nextEpE}`;
-                    window.location.href = nextEpisodeUrl;
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('s', nextEpS);
+                    currentUrl.searchParams.set('e', nextEpE);
+                    window.location.href = currentUrl.toString();
                 });
             }
             else {
