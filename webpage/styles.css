@@ -187,7 +187,7 @@ body {
 
 .server-name {
     font-size: 13px;
-    font-family: Arial;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;;
     color: #ffffffe6; /* Font color for server-name */
 }
 

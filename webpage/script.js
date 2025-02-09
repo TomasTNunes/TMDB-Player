@@ -27,18 +27,18 @@ function changeServer(serverNumber) {
     let src = '';
     if (params.type === 'movie') {
         switch (serverNumber) {
-            case 1: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break;
-            case 2: src = `https://vidsrc.cc/v2/embed/movie/${params.id}?autoPlay=false`; break;
-            case 3: src = `https://moviesapi.club/movie/${params.id}`; break;
+            case 1: src = `https://vidsrc.cc/v2/embed/movie/${params.id}?autoPlay=false`; break;
+            case 2: src = `https://moviesapi.club/movie/${params.id}`; break;
+            case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break;
             case 4: src = `https://player.videasy.net/movie/${params.id}`; break;
             case 5: src = `https://vidsrc.su/embed/movie/${params.id}`; break;
             case 6: src = `https://vidlink.pro/movie/${params.id}`; break;
         }
     } else if (params.type === 'tv') {
         switch (serverNumber) {
-            case 1: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break;
-            case 2: src = `https://vidsrc.cc/v2/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break;
-            case 3: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break;
+            case 1: src = `https://vidsrc.cc/v2/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break;
+            case 2: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break;
+            case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break;
             case 4: src = `https://player.videasy.net/tv/${params.id}/${params.season}/${params.episode}`; break;
             case 5: src = `https://vidsrc.su/embed/tv/${params.id}/${params.season}/${params.episode}`; break;
             case 6: src = `https://vidlink.pro/tv/${params.id}/${params.season}/${params.episode}`; break;
