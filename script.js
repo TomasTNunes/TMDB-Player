@@ -154,6 +154,8 @@ window.onload = async () => {
                 const nextEpButton = document.getElementById('nextep-button');
                 nextEpButton.title = `Next Episode: S${nextEpS} E${nextEpE}`;
                 nextEpButton.style.display = 'flex'; 
+                nextEpButton.style.cursor = 'pointer';
+                nextEpButton.style.opacity = 1;
                 nextEpButton.disabled = false;
                 nextEpButton.addEventListener('click', () => {
                     const currentUrl = new URL(window.location.href);
