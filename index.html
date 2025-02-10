@@ -5,23 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TMDB Player</title>
 
-    <!-- Favicons -->
     <link rel="icon" href="./icons/icon16.png" sizes="16x16">
     <link rel="icon" href="./icons/icon48.png" sizes="48x48">
     <link rel="icon" href="./icons/icon128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome for GitHub icon -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <iframe id="videoFrame" allowfullscreen></iframe>
-    <div class="buttons">
-        <button class="server-button" id="server1" onclick="changeServer(1)">Server 1</button>
-        <button class="server-button" id="server2" onclick="changeServer(2)">Server 2</button>
-        <button class="server-button" id="server3" onclick="changeServer(3)">Server 3</button>
-        <button class="server-button" id="server4" onclick="changeServer(4)">Server 4</button>
-        <button class="server-button" id="server5" onclick="changeServer(5)">Server 5</button>
-        <button class="server-button" id="server6" onclick="changeServer(6)">Server 6</button>
+    <div class="content-wrapper">
+        <div class="primary-content">
+            <header class="player-header">
+                <div class="header-buttons">
+                    <a href="https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player" target="_blank" class="git-button" title="GitHub">
+                        <i class="fab fa-github"></i> <!-- GitHub icon -->
+                    </a>
+                    <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛</a>
+                </div>
+                <h2 class="show-title" id="title"></h2>
+                <button class="nextep-button" title="Next Episode" id="nextep-button">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" 
+                            d="M22 3H20V21H22V3ZM4.28615 3.61729C3.28674 3.00228 2 3.7213 2 4.89478V19.1052C2 20.2787 3.28674 20.9977 4.28615 20.3827L15.8321 13.2775C16.7839 12.6918 16.7839 11.3082 15.8321 10.7225L4.28615 3.61729ZM4 18.2104V5.78956L14.092 12L4 18.2104Z" 
+                            fill="white"/>
+                    </svg>
+                </button>                
+            </header>            
+            <main class="player-content">
+                <iframe id="videoFrame" allowfullscreen></iframe>
+            </main>
+        </div>
+        <div class="secondary-content">
+            <div class="sidebar">
+                <div class="servers">
+                    <h3 class="servers-title">AVAILABLE SERVERS</h3>
+                    <div class="server-grid">
+                        <button class="server-card" id="server1" onclick="changeServer(1)">
+                            <div class="server-info">
+                                <span class="server-name">Rakan</span>
+                                <span class="server-label">Generally better quality.</span>
+                            </div>
+                        </button>
+                        <button class="server-card" id="server2" onclick="changeServer(2)">
+                            <div class="server-info">
+                                <span class="server-name">Bard</span>
+                                <span class="server-label">Recommended for recently released movies.</span>
+                            </div>
+                        </button>
+                        <button class="server-card" id="server3" onclick="changeServer(3)">
+                            <div class="server-info">
+                                <span class="server-name">Xayah</span>
+                                <span class="server-label">Recommended for recently released movies.</span>
+                            </div>
+                        </button>
+                        <button class="server-card" id="server4" onclick="changeServer(4)">
+                            <div class="server-info">
+                                <span class="server-name">Ekko</span>
+                                <span class="server-label">No ads. May have 4k movies. Generally better quality.</span>
+                            </div>
+                        </button>
+                        <button class="server-card" id="server5" onclick="changeServer(5)">
+                            <div class="server-info">
+                                <span class="server-name">Naafiri</span>
+                                <span class="server-label">No ads. Generally better quality.</span>
+                            </div>
+                        </button>
+                        <button class="server-card" id="server6" onclick="changeServer(6)">
+                            <div class="server-info">
+                                <span class="server-name">Ryze</span>
+                                <span class="server-label">Generally better quality.</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
