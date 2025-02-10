@@ -112,4 +112,7 @@ If you have any questions, encounter issues, or have suggestions for improvement
 ![Custom Play Button Next to Trailer](assets/screenshots/tvShowButton.png)
 
 ### Example: Streaming Page
-![Streaming Servers](assets/screenshots/player.png)
+
+![Streaming Servers](assets/screenshots/player_movie.png)
+
+![Streaming Servers](assets/screenshots/player_show.png)
