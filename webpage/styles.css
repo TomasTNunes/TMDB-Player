@@ -30,9 +30,14 @@ body {
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensure space between header-buttons and nextep-button */
     height: 40px; /* Fixed height for player-header */
-    position: relative; /* Added for centering the title */
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Add some spacing between the buttons */
 }
 
 .git-button,
@@ -54,16 +59,11 @@ body {
     text-decoration: none; /* Remove underline from links */
 }
 
-.git-button {
-    margin-right: 16px;
-}
-
 .git-button i {
     font-size: 40px; /* Adjusted GitHub icon size */
 }
 
 .bug-button {
-    margin-right: auto;
     font-size: 30px;
 }
 
@@ -72,8 +72,17 @@ body {
     transform: translateY(-4px); /* Slight upward movement */
 }
 
-.nextep-button {
-    display: none;
+.show-title {
+    font-size: 20px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap; /* Prevents the title from wrapping */
+    max-width: 60%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1; /* Allow the title to take up remaining space */
+    margin: 0 16px; /* Add some margin to prevent overlap */
 }
 
 .nextep-button svg {
@@ -93,20 +102,6 @@ body {
 
 .nextep-button:disabled svg {
     transform: scale(1); /* Makes the SVG 20% bigger */
-}
-
-.show-title {
-    font-size: 20px;
-    font-family: 'Ubuntu', 'El Messiri', sans-serif;
-    margin: 0;
-    text-align: center;
-    white-space: nowrap; /* Prevents the title from wrapping */
-    position: absolute; /* Position the title absolutely */
-    left: 50%; /* Move the title to the center */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    max-width: 60%;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 /* Player Content */
@@ -256,8 +251,8 @@ body {
         max-width: 50%;
     }
 
-    .git-button {
-        margin-right: 4px;
+    .header-buttons {
+        gap: 4px;
     }
     
     .git-button i {
@@ -265,7 +260,6 @@ body {
     }
     
     .bug-button {
-        margin-right: auto;
         font-size: 20px;
     }
     

@@ -17,11 +17,12 @@
     <div class="content-wrapper">
         <div class="primary-content">
             <header class="player-header">
-                <a href="https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player" target="_blank" class="git-button" title="GitHub">
-                    <i class="fab fa-github"></i> <!-- GitHub icon -->
-                </a>
-                <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛
-                </a> <!-- Bug emoji -->
+                <div class="header-buttons">
+                    <a href="https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player" target="_blank" class="git-button" title="GitHub">
+                        <i class="fab fa-github"></i> <!-- GitHub icon -->
+                    </a>
+                    <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛</a>
+                </div>
                 <h2 class="show-title" id="title"></h2>
                 <button class="nextep-button" title="Next Episode" id="nextep-button">
                     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +31,7 @@
                             fill="white"/>
                     </svg>
                 </button>                
-            </header>
+            </header>            
             <main class="player-content">
                 <iframe id="videoFrame" allowfullscreen></iframe>
             </main>
