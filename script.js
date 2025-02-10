@@ -142,12 +142,16 @@ window.onload = async () => {
 
     try {
         const tmdbData = await fetchTMDBData(params);
-        console.log(tmdbData.title);
+        const title = document.getElementById('title');
+
+        title.addEventListener('click', () => {
+            window.location.href = `https://www.themoviedb.org/${params.type}/${params.id}`;
+        });
 
         if (params.type === 'movie') {
-            document.getElementById('title').innerText = `${tmdbData.title}`;
+            title.innerText = `${tmdbData.title}`;
         } else {
-            document.getElementById('title').innerText = `${tmdbData.title} S${params.season} E${params.episode}`;
+            title.innerText = `${tmdbData.title} S${params.season} E${params.episode}`;
 
             const [nextEpS, nextEpE] = getNextEp(params.season, params.episode, tmdbData);
             if (nextEpS !== null) {
