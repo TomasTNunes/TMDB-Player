@@ -85,6 +85,11 @@ body {
     margin: 0 16px; /* Add some margin to prevent overlap */
 }
 
+.nextep-button {
+    cursor: default;
+    opacity: 0;
+}
+
 .nextep-button svg {
     width: 40px;
     height: 40px;
