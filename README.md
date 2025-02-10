@@ -11,8 +11,8 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 - **Custom Play Button:** Automatically adds a custom play button next to the existing TMDB "Play Trailer" button when viewing a movie or TV show page.
 - **Free Streaming:** Opens a new tab with a webpage to stream the selected movie or TV show.
-- **Multiple Streaming Servers:** Choose from different video streaming servers (Server 1, Server 2, ...). Server 1 or Server 2 is recommended for the best experience if available.
-- **Minimal Ads:** While the TMDB site itself is ad-free, the player webpage may display minimal ads. Using an ad blocker is recommended for an uninterrupted experience.
+- **Multiple Streaming Servers:** Choose from different video streaming servers to ensure the best possible streaming experience.
+- **Minimal Ads:** While the TMDB site and certain servers on the player webpage are ad-free, others may display minimal ads. For an uninterrupted experience, using an ad blocker is recommended.
 
 ---
 
@@ -78,15 +78,15 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 3. Click the "Play" button.
 4. A new tab will open with a webpage where you can stream the selected movie or TV show.
 5. Choose a streaming server:
-   - **Server 1** or **Server 2** is highly recommended for the best viewing experience, offering optimal quality and subtitles.
-   - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options or better streaming quality.
+   - **Server Recommendations:** The webpage provides specific recommendations for servers based on factors like recently released movies, 4K availability, or general best quality.
+   - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options, audio language or better streaming quality.
    - If a server is unavailable or not functioning properly, try switching to another server until you find a suitable option.
 
 ---
 
 ## Recommendations
 
-- **Ad Blocker:** While Server 1 and Server 2 feature minimal ads, it is highly recommended to use an ad blocker for a smoother and uninterrupted streaming experience. For the best results, consider using **uBlock Origin**.
+- **Ad Blocker:** While some servers are ad-free and others feature minimal ads, it is highly recommended to use an ad blocker for a smoother and uninterrupted streaming experience. For the best results, consider using **uBlock Origin**.
 - **Feedback and Support:** If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out.
 
 ---
