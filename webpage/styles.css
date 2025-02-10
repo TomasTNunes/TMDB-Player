@@ -104,6 +104,9 @@ body {
     position: absolute; /* Position the title absolutely */
     left: 50%; /* Move the title to the center */
     transform: translateX(-50%); /* Adjust for exact centering */
+    max-width: 60%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /* Player Content */
@@ -186,15 +189,15 @@ body {
 }
 
 .server-name {
-    font-size: 13px;
-    font-family: 'Ubuntu', 'El Messiri', sans-serif;;
+    font-size: 14px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
     color: #ffffffe6; /* Font color for server-name */
 }
 
 .server-label {
     font-size: 11px;
     font-family: Arial;
-    margin-top: 2px;
+    margin-top: 3px;
     color: #ffffffb3; /* Font color for server-label */
 }
 
@@ -250,6 +253,7 @@ body {
 @media (max-width: 768px) {
     .show-title {
         font-size: 16px;
+        max-width: 50%;
     }
 
     .git-button {
