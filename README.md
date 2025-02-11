@@ -5,14 +5,16 @@
 
 TMDB Player is a browser extension designed to enhance your movie and TV show experience on the [TMDB website](https://www.themoviedb.org/). This extension adds a custom play button to TMDB pages, allowing you to stream movies and TV shows for free from various video streaming servers.
 
+**Note:** Extension in Chrome Web Store is currently disabled. For Chrome browser please follow the [Manual Installation](#manual-installation).
+
 ---
 
 ## Features
 
 - **Custom Play Button:** Automatically adds a custom play button next to the existing TMDB "Play Trailer" button when viewing a movie or TV show page.
 - **Free Streaming:** Opens a new tab with a webpage to stream the selected movie or TV show.
-- **Multiple Streaming Servers:** Choose from different video streaming servers (Server 1, Server 2, ...). Server 1 or Server 2 is recommended for the best experience if available.
-- **Minimal Ads:** While the TMDB site itself is ad-free, the player webpage may display minimal ads. Using an ad blocker is recommended for an uninterrupted experience.
+- **Multiple Streaming Servers:** Choose from different video streaming servers to ensure the best possible streaming experience.
+- **Minimal Ads:** While the TMDB site and certain servers on the player webpage are ad-free, others may display minimal ads. For an uninterrupted experience, using an ad blocker is recommended.
 
 ---
 
@@ -50,10 +52,11 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 2. Open the Firefox Browser and navigate to the **Firefox Add-ons Store**.
 3. Search for **TMDB Player** and install the extension.
 4. (Optional/Recommendation) You can also install **uBlock Origin** or other adblockers of your choice from the Firefox Add-ons Store.
+5. (Optional) For a more app-like experience, you can add the TMDB homepage to your device's home screen.
 
 ### Manual Installation
 
-#### For Chromium-based Browsers (Chrome, Edge, Opera, etc.)
+#### For Chromium-based Browsers (Chrome, Edge, Opera, Brave, etc.)
 1. Download the `tmdb_player-chromium-x.x.x.zip` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases).
 2. Extract the `.zip` file to a folder on your computer.
 3. Open your browser and navigate to the extensions page:
@@ -78,15 +81,15 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 3. Click the "Play" button.
 4. A new tab will open with a webpage where you can stream the selected movie or TV show.
 5. Choose a streaming server:
-   - **Server 1** or **Server 2** is highly recommended for the best viewing experience, offering optimal quality and subtitles.
-   - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options or better streaming quality.
+   - **Server Recommendations:** The webpage provides specific recommendations for servers based on factors like recently released movies, 4K availability, or general best quality.
+   - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options, audio language or better streaming quality.
    - If a server is unavailable or not functioning properly, try switching to another server until you find a suitable option.
 
 ---
 
 ## Recommendations
 
-- **Ad Blocker:** While Server 1 and Server 2 feature minimal ads, it is highly recommended to use an ad blocker for a smoother and uninterrupted streaming experience. For the best results, consider using **uBlock Origin**.
+- **Ad Blocker:** While some servers are ad-free and others feature minimal ads, it is highly recommended to use an ad blocker for a smoother and uninterrupted streaming experience. For the best results, consider using **uBlock Origin**.
 - **Feedback and Support:** If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out.
 
 ---
@@ -112,4 +115,7 @@ If you have any questions, encounter issues, or have suggestions for improvement
 ![Custom Play Button Next to Trailer](assets/screenshots/tvShowButton.png)
 
 ### Example: Streaming Page
-![Streaming Servers](assets/screenshots/player.png)
+
+![Streaming Servers](assets/screenshots/player_movie.png)
+
+![Streaming Servers](assets/screenshots/player_show.png)
