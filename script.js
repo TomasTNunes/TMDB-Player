@@ -55,7 +55,7 @@ function changeServer(serverNumber) {
     let src = '';
     if (params.type === 'movie') {
         switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v2/embed/movie/${params.id}?autoPlay=false`; break; // Rakan
+            case 1: src = `https://vidsrc.cc/v3/embed/movie/${params.id}?autoPlay=false`; break; // Rakan
             case 2: src = `https://moviesapi.club/movie/${params.id}`; break; // Bard
             case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break; // Xayah
             case 4: src = `https://player.videasy.net/movie/${params.id}`; break; // Ekko
@@ -64,7 +64,7 @@ function changeServer(serverNumber) {
         }
     } else if (params.type === 'tv') {
         switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v2/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break; // Rakan
+            case 1: src = `https://vidsrc.cc/v3/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break; // Rakan
             case 2: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break; // Bard
             case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break; // Xayah
             case 4: src = `https://player.videasy.net/tv/${params.id}/${params.season}/${params.episode}?nextEpisode=true&episodeSelector=true`; break; // Ekko
