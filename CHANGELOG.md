@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/TomasTNunes/TMDB-Player/compare/v1.1.0...v1.2.0) (2025-02-12)
+
+
+### Features
+
+* improve popup layout, add default server selection and new tab option ([#14](https://github.com/TomasTNunes/TMDB-Player/issues/14)) ([d6c302f](https://github.com/TomasTNunes/TMDB-Player/commit/d6c302f859078f909cdc69481a074627ab57caa5))
+* **webpage:** add two more servers ([e0ffe0c](https://github.com/TomasTNunes/TMDB-Player/commit/e0ffe0c4fe1ac1e7a4d9287c1b8f316a250a025f))
+* **webpage:** change webpage layout, addition of buttons and addition of servers ([#12](https://github.com/TomasTNunes/TMDB-Player/issues/12)) ([6373350](https://github.com/TomasTNunes/TMDB-Player/commit/63733508b6d13e40260c8703bf1381e99a665e3a))
+
 ## [1.1.0](https://github.com/TomasTNunes/TMDB-Player/compare/v1.0.0...v1.1.0) (2025-02-01)
 
 
