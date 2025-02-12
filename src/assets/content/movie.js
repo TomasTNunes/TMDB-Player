@@ -28,8 +28,17 @@
             `;
 
             // Add event listener to open the new link
-            customButton.onclick = function() {
-                window.open(`https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}`, '_blank');
+            customButton.onclick = async function() { // Make the function async
+                // Get Saved preferences
+                const preferences = await savedPreferences();
+                
+                const url = `https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}&server=${preferences.selectedServerNumber}`;
+                
+                if (preferences.isToggleActive) {
+                    window.open(url, '_blank'); // Opens in a new tab
+                } else {
+                    window.location.href = url; // Opens in the same tab
+                }
             };
 
             // Insert custom play Button

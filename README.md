@@ -87,6 +87,31 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 ---
 
+## Tips and Tricks
+
+Here are some handy tips and tricks to enhance your experience with the extension:
+
+### 1. Quick Access to TMDB Website  
+- The extension popup includes a button to quickly open the TMDB website for easy navigation.  
+
+### 2. Control How Streaming Pages Open  
+- By default, the streaming webpage opens in a new tab. If you prefer it to open in the same tab as the TMDB page, simply switch off the "Open movie/tv show in new tab" toggle button in the extension popup.  
+
+### 3. Choose Your Default Streaming Server  
+- Customize your experience by selecting your preferred default server in the extension popup. This ensures your streaming webpage always opens with your chosen server.  
+
+### 4. Android: App-Like Experience  
+- For a more seamless, app-like experience on Android, add the TMDB homepage to your device’s home screen. This allows quick access without opening a browser.  
+
+### 5. Edge: Install TMDB as an App  
+- On Microsoft Edge, you can install TMDB as a standalone app for a more immersive experience. Here’s how:  
+  1. Go to the [TMDB website](https://www.themoviedb.org/).  
+  2. Click on the three dots (settings) in the top-right corner.  
+  3. Select **Apps** and then click **Install The Movie Database**.  
+- **Important:** Don’t forget to switch off the "Open movie/tv show in new tab" toggle button in the extension popup to ensure the streaming page opens in the app.  
+
+---
+
 ## Recommendations
 
 - **Ad Blocker:** While some servers are ad-free and others feature minimal ads, it is highly recommended to use an ad blocker for a smoother and uninterrupted streaming experience. For the best results, consider using **uBlock Origin**.

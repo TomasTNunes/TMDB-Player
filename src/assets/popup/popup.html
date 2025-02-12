@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>TMDB Extension</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Player</title>
+
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h3>TMDB Extension</h3>
-    <button id="goToTmdb">Open TMDB</button>
-    
+    <div class="header">
+        TMDB Player
+    </div>
+    <div class="row">
+        <span>Open movie/tv show in new tab</span>
+        <label class="toggle">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="row">
+        <span>Default server</span>
+        <select class="server-selection" id="server-select">
+            <option server-number="1">Rakan</option>
+            <option server-number="2">Bard</option>
+            <option server-number="3">Xayah</option>
+            <option server-number="4">Ekko</option>
+            <option server-number="5">Naafiri</option>
+            <option server-number="6">Ryze</option>
+        </select>
+    </div>
+    <div class="row center-row">
+        <button class="tmdb-button" id="tmdb-button">Open TMDB Website</button>
+    </div>
+    <div class="row center-row">
+        <div class="button-group">
+            <button class="git-button" id="git-button">
+                <i class="fab fa-github"></i> GitHub
+            </button>
+            <button class="bug-button" id="bug-button">Report Bug</button>
+        </div>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>
