@@ -144,3 +144,7 @@ If you have any questions, encounter issues, or have suggestions for improvement
 ![Streaming Servers](assets/screenshots/player_movie.png)
 
 ![Streaming Servers](assets/screenshots/player_show.png)
+
+### Popup:
+
+![Popup](assets/screenshots/popup.png)
