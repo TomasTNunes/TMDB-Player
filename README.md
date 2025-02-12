@@ -85,6 +85,8 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
    - You may also explore other servers to find the one that best suits your needs, particularly for specific subtitle options, audio language or better streaming quality.
    - If a server is unavailable or not functioning properly, try switching to another server until you find a suitable option.
 
+---
+
 ## Tips and Tricks
 
 Here are some handy tips and tricks to enhance your experience with the extension:
