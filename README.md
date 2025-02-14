@@ -100,10 +100,13 @@ Here are some handy tips and tricks to enhance your experience with the extensio
 ### 3. Choose Your Default Streaming Server  
 - Customize your experience by selecting your preferred default server in the extension popup. This ensures your streaming webpage always opens with your chosen server.  
 
-### 4. Android: App-Like Experience  
+### 4. Quick Navigation Back to TMDB
+- Clicking on the movie/tv show title on the streaming webpage will redirect you to the corresponding TMDB page, making it easier to switch between these two.
+
+### 5. Android: App-Like Experience  
 - For a more seamless, app-like experience on Android, add the TMDB homepage to your device’s home screen. This allows quick access without opening a browser.  
 
-### 5. Edge: Install TMDB as an App  
+### 6. Edge: Install TMDB as an App  
 - On Microsoft Edge, you can install TMDB as a standalone app for a more immersive experience. Here’s how:  
   1. Go to the [TMDB website](https://www.themoviedb.org/).  
   2. Click on the three dots (settings) in the top-right corner.  
