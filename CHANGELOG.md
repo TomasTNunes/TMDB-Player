@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/TomasTNunes/TMDB-Player/compare/v1.2.0...v1.2.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **popup:** fix redirect buttons on popup for orion ([#16](https://github.com/TomasTNunes/TMDB-Player/issues/16)) ([9db6a6b](https://github.com/TomasTNunes/TMDB-Player/commit/9db6a6b9ce96a14fd63bde7df111b10357214e52))
+* **webpage:** fit content title clickable length to its length ([#17](https://github.com/TomasTNunes/TMDB-Player/issues/17)) ([d8e6d1d](https://github.com/TomasTNunes/TMDB-Player/commit/d8e6d1d1957645d4961bf318e74a0053b6520934))
+
 ## [1.2.0](https://github.com/TomasTNunes/TMDB-Player/compare/v1.1.0...v1.2.0) (2025-02-12)
 
 
