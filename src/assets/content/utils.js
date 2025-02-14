@@ -54,3 +54,14 @@ function isMobile() {
     const isSmallScreen = window.innerWidth <= 768;
     return isMobileUserAgent || isSmallScreen;
 }
+
+// Function to Retireve saved preference from popup
+function savedPreferences() {
+    return new Promise((resolve) => {
+        chrome.storage.sync.get(['isToggleActive', 'selectedServerNumber'], (data) => {
+            const isToggleActive = data.isToggleActive !== undefined ? data.isToggleActive : true;
+            const selectedServerNumber = data.selectedServerNumber || '1';
+            resolve({ isToggleActive, selectedServerNumber });
+        });
+    });
+}

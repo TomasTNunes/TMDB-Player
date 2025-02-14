@@ -81,7 +81,6 @@ body {
     max-width: 60%;
     text-overflow: ellipsis;
     overflow: hidden;
-    flex: 1; /* Allow the title to take up remaining space */
     margin: 0 16px; /* Add some margin to prevent overlap */
     cursor: pointer;
 }

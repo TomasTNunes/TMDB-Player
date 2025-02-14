@@ -1,42 +1,160 @@
-/* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
     margin: 0;
-    padding: 20px; /* Added padding for spacing */
-    background-color: #2e3a47; /* TMDB dark background */
-    color: #ffffff; /* White text */
-    width: 250px; /* Set width of popup */
-    text-align: center;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    padding: 0;
+    width: 350px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-/* Header Styles */
-h3 {
-    font-size: 20px;
-    color: #00b5e2; /* TMDB blue */
-    margin-top: 20px;
-}
-
-/* Button Styles */
-button {
-    padding: 12px 20px;
-    background-color: #00b5e2; /* TMDB blue */
+.header {
+    background: linear-gradient(to right, #90cea1, #01b4e4);
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
-    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #0288d1; /* Darker blue for hover */
+.row {
+    padding: 15px 30px;
+    font-size: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure row takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-button:active {
-    background-color: #0277bd; /* Even darker blue when pressed */
+.row:last-child {
+    border-bottom: none;
+}
+
+.row span {
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    box-sizing: border-box;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 24px;
+    box-sizing: border-box;
+    min-width: 48px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+.server-selection {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 1px solid #0d253f;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    font-size: 14px;
+    height: 36px;
+}
+
+.center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    width: 100%; /* Ensure it takes full width of parent */
+    max-width: 100%; /* Constrain to parent width */
+    gap: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.tmdb-button {
+    padding: 10px;
+    background-color: #0d253f;
+    color: white;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    font-size: 15px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    width: 65%; /* Make button take full width of its container */
+    max-width: 250px; /* Limit maximum width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Center buttons horizontally */
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.git-button,
+.bug-button {
+    padding: 10px;
+    background-color: #0d253f;
+    color: white;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    width: 140px; /* Fixed width for both buttons */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.git-button i {
+    font-size: 18px; /* Adjust icon size */
+}
+
+.bug-button::before {
+    content: "🐛"; /* Bug emoji */
 }
