@@ -24,13 +24,23 @@
                     <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛</a>
                 </div>
                 <h2 class="show-title" id="title"></h2>
-                <button class="nextep-button" title="Next Episode" id="nextep-button">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" 
-                            d="M22 3H20V21H22V3ZM4.28615 3.61729C3.28674 3.00228 2 3.7213 2 4.89478V19.1052C2 20.2787 3.28674 20.9977 4.28615 20.3827L15.8321 13.2775C16.7839 12.6918 16.7839 11.3082 15.8321 10.7225L4.28615 3.61729ZM4 18.2104V5.78956L14.092 12L4 18.2104Z" 
-                            fill="white"/>
-                    </svg>
-                </button>                
+                <div class="header-buttons">
+                    <button class="epselect-button" title="Episode Selection" id="epselect-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="EpisodesStandard" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" 
+                            d="M8 5H22V13H24V5C24 3.89543 23.1046 3 22 3H8V5ZM18 9H4V7H18C19.1046 7 20 7.89543 20 9V17H18V9ZM0 13C0 11.8954 0.895431 11 2 11H14C15.1046 11 16 11.8954 16 13V19C16 20.1046 15.1046 21 14 21H2C0.895431 21 0 20.1046 0 19V13ZM14 19V13H2V19H14Z" 
+                            fill="white">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nextep-button" title="Next Episode" id="nextep-button">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" 
+                                d="M22 3H20V21H22V3ZM4.28615 3.61729C3.28674 3.00228 2 3.7213 2 4.89478V19.1052C2 20.2787 3.28674 20.9977 4.28615 20.3827L15.8321 13.2775C16.7839 12.6918 16.7839 11.3082 15.8321 10.7225L4.28615 3.61729ZM4 18.2104V5.78956L14.092 12L4 18.2104Z" 
+                                fill="white"/>
+                        </svg>
+                    </button>
+                </div>              
             </header>            
             <main class="player-content">
                 <iframe id="videoFrame" allowfullscreen></iframe>

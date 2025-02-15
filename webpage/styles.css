@@ -42,7 +42,8 @@ body {
 
 .git-button,
 .bug-button,
-.nextep-button {
+.nextep-button,
+.epselect-button {
     width: 40px;
     height: 40px;
     font-size: 13px;
@@ -89,27 +90,32 @@ body {
     text-decoration: underline;
 }
 
-.nextep-button {
+.nextep-button,
+.epselect-button {
     cursor: default;
     opacity: 0;
 }
 
-.nextep-button svg {
+.nextep-button svg,
+.epselect-button svg {
     width: 40px;
     height: 40px;
     transition: transform 0.2s ease;
 }
 
-.nextep-button:hover svg {
+.nextep-button:hover svg,
+.epselect-button:hover svg {
     transform: scale(1.3); /* Makes the SVG 20% bigger */
 }
 
-.nextep-button:disabled {
+.nextep-button:disabled,
+.epselect-button:disabled {
     cursor: not-allowed; /* Change cursor to indicate it's not clickable */
     opacity: 0.4; /* Optional: Reduce opacity to make it look disabled */
 }
 
-.nextep-button:disabled svg {
+.nextep-button:disabled svg,
+.epselect-button:disabled svg {
     transform: scale(1); /* Makes the SVG 20% bigger */
 }
 
@@ -272,7 +278,8 @@ body {
         font-size: 20px;
     }
     
-    .nextep-button svg {
+    .nextep-button svg,
+    .epselect-button svg {
         width: 25px;
         height: 25px;
         transition: transform 0.2s ease;

@@ -153,6 +153,14 @@ window.onload = async () => {
         } else {
             title.innerText = `${tmdbData.title} S${params.season} E${params.episode}`;
 
+            // Episode Selection
+            const epSelectButton = document.getElementById('epselect-button');
+            epSelectButton.style.display = 'flex'; 
+            epSelectButton.style.cursor = 'pointer';
+            epSelectButton.style.opacity = 1;
+            epSelectButton.disabled = false;
+
+            // Next Episode
             const [nextEpS, nextEpE] = getNextEp(params.season, params.episode, tmdbData);
             if (nextEpS !== null) {
                 const nextEpButton = document.getElementById('nextep-button');
