@@ -42,8 +42,10 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
    [![Download Orion Browser on App Store](https://img.shields.io/badge/Download_Orion_Browser-007AFF?logo=app-store&logoColor=white)](https://apps.apple.com/us/app/orion-browser-by-kagi/id1484498200)  
    Orion Browser allows you to install add-ons from both the Chrome and Firefox stores.
 2. Open the Orion Browser and navigate to the **Firefox Add-ons Store**.
-3. Search for **TMDB Player** and install the extension.
-4. (Optional/Recommendation) You can also install **uBlock Origin** or other adblock of your liking from these stores.
+3. Search for [TMDB Player](https://addons.mozilla.org/en-US/firefox/addon/tmdb-player/) and install the extension.
+4. (Optional/Recommendation) You can also install [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/) or other adblock of your liking from these stores.
+
+**Note:** Extensions in the Orion Browser do not update automatically when a new release is available. To ensure you have the latest version of the TMDB Player extension, revisit the [TMDB Player Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/tmdb-player/) and reinstall the extension.
 
 ### For Android
 
@@ -51,7 +53,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
    [![Download Firefox on Google Play](https://img.shields.io/badge/Download_Firefox-4285F4?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=org.mozilla.firefox)  
 2. Open the Firefox Browser and navigate to the **Firefox Add-ons Store**.
 3. Search for **TMDB Player** and install the extension.
-4. (Optional/Recommendation) You can also install **uBlock Origin** or other adblockers of your choice from the Firefox Add-ons Store.
+4. (Optional/Recommendation) You can also install [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/) or other adblock of your choice from the Firefox Add-ons Store.
 5. (Optional) For a more app-like experience, you can add the TMDB homepage to your device's home screen.
 
 ### Manual Installation
