@@ -1,11 +1,11 @@
 # TMDB Player
 
 ![Social Preview](assets/socialpreview/socialpreview.png)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-yellow?logo=google-chrome&logoColor=white)](https://chromewebstore.google.com/detail/jomgiognkiagcgfhnbajhkdccmmmmphk) [![Firefox Add-ons](https://img.shields.io/badge/Firefox_Add_ons-Install-orange?logo=firefox-browser&logoColor=white)](https://addons.mozilla.org/firefox/addon/tmdb-player/) [![Edge Add-ons](https://img.shields.io/badge/Edge_Add_ons-Install-blue?logo=microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/nioipgkkpacjdknpkochdpbhkcgefopi)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-yellow?logo=google-chrome&logoColor=white)](#for-chromium-based-browsers-chrome-edge-brave-opera-etc) [![Firefox Add-ons](https://img.shields.io/badge/Firefox_Add_ons-Install-orange?logo=firefox-browser&logoColor=white)](https://addons.mozilla.org/firefox/addon/tmdb-player/) [![Edge Add-ons](https://img.shields.io/badge/Edge_Add_ons-Install-blue?logo=microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/nioipgkkpacjdknpkochdpbhkcgefopi)
 
 TMDB Player is a browser extension designed to enhance your movie and TV show experience on the [TMDB website](https://www.themoviedb.org/). This extension adds a custom play button to TMDB pages, allowing you to stream movies and TV shows for free from various video streaming servers.
 
-**Note:** Extension in Chrome Web Store is currently disabled. For Chrome browser please follow the [Manual Installation](#manual-installation).
+**Note:** Extension in Chrome Web Store is currently disabled. For Chrome and other Chromium (Brave, Opera, etc) browsers please follow [these steps](#for-chromium-based-browsers-chrome-edge-brave-opera-etc).
 
 ---
 
@@ -22,7 +22,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 ### Install from available Stores
 
-<a href="https://chromewebstore.google.com/detail/jomgiognkiagcgfhnbajhkdccmmmmphk" target="_blank">
+<a href="#for-chromium-based-browsers-chrome-edge-brave-opera-etc" target="_blank">
  <img src="https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png" alt="Google Chrome" height="50px" >
 </a>
 
@@ -34,7 +34,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
  <img src="https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png" alt="Microsoft Edge" height="50px" >
 </a>
 
-**Note:** Chromium-based browsers like Opera, Brave, Edge, etc., can also install the extension from the **Chrome Web Store**.
+**Note:**  Other Chromium-based browsers like Opera, Brave, etc., can also install the extension from the **Chrome Web Store**. But since the extension is currently disabled in this store, for Chrome and other Chromium (Brave, Opera, etc) browsers please follow [these steps](#for-chromium-based-browsers-chrome-edge-brave-opera-etc). 
 
 ### For iPhone (iOS) and iPad (iPadOS)
 
@@ -52,21 +52,22 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 1. Install **Firefox Browser** from the Google Play Store:  
    [![Download Firefox on Google Play](https://img.shields.io/badge/Download_Firefox-4285F4?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=org.mozilla.firefox)  
 2. Open the Firefox Browser and navigate to the **Firefox Add-ons Store**.
-3. Search for **TMDB Player** and install the extension.
+3. Search for [TMDB Player](https://addons.mozilla.org/en-US/android/addon/tmdb-player/) and install the extension.
 4. (Optional/Recommendation) You can also install [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/) or other adblock of your choice from the Firefox Add-ons Store.
 5. (Optional) For a more app-like experience, you can add the TMDB homepage to your device's home screen.
 
 ### Manual Installation
 
-#### For Chromium-based Browsers (Chrome, Edge, Opera, Brave, etc.)
-1. Download the `tmdb_player-chromium-x.x.x.zip` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases).
-2. Extract the `.zip` file to a folder on your computer.
-3. Open your browser and navigate to the extensions page:
-   - **Chrome:** `chrome://extensions/`
-   - **Edge:** `edge://extensions/`
-4. Enable **Developer mode**.
-5. Click on **Load unpacked** and select the folder where you extracted the files.
-6. The TMDB Player extension will be added to your browser.
+#### For Chromium-based Browsers (Chrome, Edge, Brave, Opera, etc.)
+1. Download the `tmdb_player-chromium-x.x.x.crx` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases). You might see a warning saying, "We can't add apps, extensions, or user scripts from this website." However, the `.crx` file will still be downloaded.
+2. Open your browser and navigate to the extensions page:
+   - **Chrome:** Type `chrome://extensions/` in the address bar.
+   - **Edge:** `edge://extensions/` in the address bar.
+3. Enable **Developer mode**.
+4. Drag and drop the downloaded  `tmdb_player-chromium-x.x.x.crx` onto the extensions page.
+5. The TMDB Player extension will be added to your browser. Once installed, you can disable **Developer mode** if you desire.
+
+**Note:** When using this method, the extension will not update automatically when a new version is released. To ensure you have the latest version of the TMDB Player extension, repeat the steps above whenever a new release is available.
 
 #### For Firefox
 1. Download the `tmdb_player-firefox-x.x.x-signed.xpi` file from the [Releases page](https://github.com/TomasTNunes/TMDB-Player/releases).
