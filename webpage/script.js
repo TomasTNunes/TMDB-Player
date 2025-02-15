@@ -108,8 +108,10 @@ async function fetchTMDBData(params) {
             const data = await response.json();
             result['title'] = data.name;
             const seasons = data.seasons;
+            result['seasons'] = [];
             for (const season of seasons) {
                 result[season.season_number] = season.episode_count;
+                result['seasons'].push(season.season_number);
             }
         } else {
             throw new Error('Invalid type specified');
@@ -131,6 +133,41 @@ function getNextEp(currentSeason, currentEpisode, tmdbData) {
         return [parseInt(currentSeason) + 1, 1];
     }
     return [null, null];
+}
+
+async function fetchEpSelectionData(params, tmdbData) {
+    const result = {};
+    let url;
+    const headers = {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTk1NzRmZDcxMjRkNmI5ZTUyNjA4ZWEzNWQ2NzdiNCIsIm5iZiI6MTczNzU5MDQ2NC4zMjUsInN1YiI6IjY3OTE4NmMwZThiNjdmZjgzM2ZhNjM4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kWqK74FSN41PZO7_ENZelydTtX0u2g6dCkAW0vFs4jU`,
+        'accept': 'application/json'
+    };
+
+    for(const season of tmdbData['seasons']) {
+        url = `https://api.themoviedb.org/3/tv/${params.id}/season/${season}?language=en-US`;
+        const response = await fetch(url, { method: 'GET', headers: headers });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const seasonData = await response.json();
+
+        result[season] = {}
+        result[season]['name'] = seasonData.name;
+        result[season]['poster_path'] = seasonData.poster_path;
+        result[season]['episodes'] = [];
+
+        for(const ep of seasonData.episodes) {
+            episode = {};
+            episode['name'] = ep.name;
+            episode['episode_number'] = ep.episode_number;
+            episode['season_number'] = ep.season_number;
+            episode['air_date'] = ep.air_date;
+            episode['runtime'] = ep.runtime;
+            episode['still_path'] = ep.still_path;
+            result[season]['episodes'].push(episode);
+        }
+    }
+    return result;
 }
 
 window.onload = async () => {
@@ -157,8 +194,9 @@ window.onload = async () => {
             const epSelectButton = document.getElementById('epselect-button');
             epSelectButton.style.display = 'flex'; 
             epSelectButton.style.cursor = 'pointer';
-            epSelectButton.style.opacity = 1;
+            epSelectButton.style.visibility = 'visible';
             epSelectButton.disabled = false;
+            const epSelectionData = fetchEpSelectionData(params, tmdbData); // maybe put await???
 
             // Next Episode
             const [nextEpS, nextEpE] = getNextEp(params.season, params.episode, tmdbData);
@@ -167,7 +205,7 @@ window.onload = async () => {
                 nextEpButton.title = `Next Episode: S${nextEpS} E${nextEpE}`;
                 nextEpButton.style.display = 'flex'; 
                 nextEpButton.style.cursor = 'pointer';
-                nextEpButton.style.opacity = 1;
+                nextEpButton.style.visibility = 'visible';
                 nextEpButton.disabled = false;
                 nextEpButton.addEventListener('click', () => {
                     const currentUrl = new URL(window.location.href);
@@ -181,6 +219,7 @@ window.onload = async () => {
                 const nextEpButton = document.getElementById('nextep-button');
                 nextEpButton.title = `No Next Episode`;
                 nextEpButton.style.display = 'flex'; // Ensure the button is visible
+                nextEpButton.style.visibility = 'visible';
                 nextEpButton.disabled = true; // Disable the button
             }
         }

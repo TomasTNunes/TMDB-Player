@@ -93,7 +93,7 @@ body {
 .nextep-button,
 .epselect-button {
     cursor: default;
-    opacity: 0;
+    visibility: hidden;
 }
 
 .nextep-button svg,
