@@ -211,6 +211,80 @@ body {
     color: #ffffffb3; /* Font color for server-label */
 }
 
+/* Popover Styles */
+.popover-container {
+    position: relative;
+    display: inline-block;
+}
+
+.popover-content {
+    visibility: hidden;
+    width: 300px;
+    background-color: #1f1f1f;
+    color: #ffffffe6;
+    text-align: left;
+    border-radius: 8px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+
+.popover-content::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #1f1f1f transparent;
+}
+
+.popover-container.active .popover-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popover-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popover-content ul li {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+
+.popover-content ul li:last-child {
+    border-bottom: none;
+}
+
+.popover-content ul li:hover {
+    background-color: #333;
+}
+
+.back-button {
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #007BFF;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.back-button:hover {
+    background-color: #333;
+}
+
 @media (max-width: 1200px) {
     body {
         overflow-y: auto; /* Allow the entire webpage to scroll vertically */

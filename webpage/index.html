@@ -10,7 +10,7 @@
     <link rel="icon" href="./icons/icon128.png" sizes="128x128">
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=El+Messiri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome for GitHub icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,20 +19,27 @@
             <header class="player-header">
                 <div class="header-buttons">
                     <a href="https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player" target="_blank" class="git-button" title="GitHub">
-                        <i class="fab fa-github"></i> <!-- GitHub icon -->
+                        <i class="fab fa-github"></i>
                     </a>
                     <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛</a>
                 </div>
                 <h2 class="show-title" id="title"></h2>
                 <div class="header-buttons">
-                    <button class="epselect-button" title="Episode Selection" id="epselect-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="EpisodesStandard" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd" 
-                            d="M8 5H22V13H24V5C24 3.89543 23.1046 3 22 3H8V5ZM18 9H4V7H18C19.1046 7 20 7.89543 20 9V17H18V9ZM0 13C0 11.8954 0.895431 11 2 11H14C15.1046 11 16 11.8954 16 13V19C16 20.1046 15.1046 21 14 21H2C0.895431 21 0 20.1046 0 19V13ZM14 19V13H2V19H14Z" 
-                            fill="white">
-                            </path>
-                        </svg>
-                    </button>
+                    <div class="popover-container">
+                        <button class="epselect-button" title="Episode Selection" id="epselect-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="EpisodesStandard" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" 
+                                d="M8 5H22V13H24V5C24 3.89543 23.1046 3 22 3H8V5ZM18 9H4V7H18C19.1046 7 20 7.89543 20 9V17H18V9ZM0 13C0 11.8954 0.895431 11 2 11H14C15.1046 11 16 11.8954 16 13V19C16 20.1046 15.1046 21 14 21H2C0.895431 21 0 20.1046 0 19V13ZM14 19V13H2V19H14Z" 
+                                fill="white">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="popover-content">
+                            <div class="back-button" onclick="showSeasons()">← Back to Seasons</div>
+                            <ul class="seasons-list"></ul>
+                            <ul class="episodes-list" style="display: none;"></ul>
+                        </div>
+                    </div>
                     <button class="nextep-button" title="Next Episode" id="nextep-button">
                         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" 
