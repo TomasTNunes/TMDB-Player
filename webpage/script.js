@@ -164,6 +164,7 @@ async function fetchEpSelectionData(params, tmdbData) {
 
         result[season] = {};
         result[season].name = seasonData.name;
+        result[season].air_date = seasonData.air_date;
         result[season].poster_path = seasonData.poster_path;
         result[season].episodes = [];
 
@@ -187,9 +188,7 @@ function showSeasons(tvShowTitle) {
     episodesList.style.display = 'none';
     popoverBackButton.style.display = 'none';
     popoverTitle.innerText = tvShowTitle;
-    if (popoverListContainer) {
-        popoverListContainer.scrollTop = 0;
-    }
+    popoverListContainer.scrollTop = 0;
 }
 
 // Episode Selection Popover show: episodes list
@@ -198,9 +197,7 @@ function showEpisodes(seasonName) {
     episodesList.style.display = 'block';
     popoverBackButton.style.display = 'block';
     popoverTitle.innerText = seasonName;
-    if (popoverListContainer) {
-        popoverListContainer.scrollTop = 0;
-    }
+    popoverListContainer.scrollTop = 0;
 }
 
 // Load Popover container with seasons and episodes 
@@ -210,17 +207,22 @@ async function loadPopoverSelectEpisode(params, tmdbData) {
 
     // Populate seasons list
     seasonsList.innerHTML = tmdbData.seasons.map(season => `
-        <li data-season="${season}">${epSelectionData[season].name}</li>
+        <li data-season="${season}">
+            <div class="season-name">${epSelectionData[season].name}</div>
+            <div class="season-details">${epSelectionData[season].air_date ? epSelectionData[season].air_date : ""}</div>
+        </li>
     `).join('');
 
     // Handle season click
     seasonsList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'LI') {
-            const season = e.target.getAttribute('data-season');
+        const li = e.target.closest('li');
+        if (li) {
+            const season = li.getAttribute('data-season');
             const episodes = epSelectionData[season].episodes;
             episodesList.innerHTML = episodes.map(ep => `
                 <li data-season="${season}" data-episode="${ep.episode_number}">
-                    E${ep.episode_number} - ${ep.name}
+                    <div class="episode-name">E${ep.episode_number} - ${ep.name}</div>
+                    <div class="episode-details">${ep.air_date ? ep.air_date : ""}&nbsp;&nbsp;&nbsp;${ep.runtime ? `(${ep.runtime}m)` : ""}</div>
                 </li>
             `).join('');
             showEpisodes(epSelectionData[season].name);
@@ -229,9 +231,10 @@ async function loadPopoverSelectEpisode(params, tmdbData) {
 
     // Handle episode click
     episodesList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'LI') {
-            const season = e.target.getAttribute('data-season');
-            const episode = e.target.getAttribute('data-episode');
+        const li = e.target.closest('li');
+        if (li) {
+            const season = li.getAttribute('data-season');
+            const episode = li.getAttribute('data-episode');
             const currentUrl = new URL(window.location.href);
             currentUrl.searchParams.set('s', season);
             currentUrl.searchParams.set('e', episode);

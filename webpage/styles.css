@@ -220,7 +220,7 @@ body {
 .popover-content {
     visibility: hidden;
     width: 450px;
-    height: 492px;
+    height: 564px;
     background-color: #0D0D0D;
     color: #ffffff;
     text-align: left;
@@ -264,8 +264,8 @@ body {
     font-family: 'Ubuntu', 'El Messiri', sans-serif;
     font-weight: bold;
     color: #ffffff;
-    white-space: nowrap; /* Prevent title from wrapping */
     overflow: hidden;
+    white-space: nowrap; /* Prevents the title from wrapping */
     text-overflow: ellipsis; /* Add ellipsis if title is too long */
 }
 
@@ -282,7 +282,7 @@ body {
 
 /* List Container */
 .popover-list-container {
-    height: calc(492px - 60px); /* Subtract header height from total height */
+    height: calc(564px - 60px); /* Subtract header height from total height */
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -314,13 +314,34 @@ body {
 .popover-content ul li {
     padding: 12px 20px;
     cursor: pointer;
-    height: 24px;
-    display: flex;
+    height: 32px;
     align-items: center;
+    display: block;
 }
 
 .popover-content ul li:hover {
     background-color: #333;
+}
+
+.season-name,
+.episode-name {
+    display: block; /* Ensures it takes up full width */
+    white-space: nowrap; /* Prevents the title from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if title is too long */
+    overflow: hidden;
+}
+
+.season-details,
+.episode-details {
+    display: block; /* Ensures it is on a new line */
+    color: #999;
+    font-size: 13px;
+    margin-top: 2px;
+    font-style: italic;
+    opacity: 0.8;
+    white-space: nowrap; /* Prevents the title from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if title is too long */
+    overflow: hidden;
 }
 
 @media (max-width: 1200px) {
@@ -412,5 +433,14 @@ body {
 
     .popover-header-title {
         font-size: 16px;
+    }
+
+    .popover-content ul li {
+        padding-right: 8px;
+    }
+
+    .season-details,
+    .episode-details {
+        font-size: 12px;
     }
 }
