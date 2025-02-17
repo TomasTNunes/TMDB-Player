@@ -7,7 +7,9 @@ const popoverContainer = document.querySelector('.popover-container');
 const popoverContent = document.querySelector('.popover-content');
 const seasonsList = document.querySelector('.seasons-list');
 const episodesList = document.querySelector('.episodes-list');
-const backButton = document.querySelector('.back-button');
+const popoverTitle = document.querySelector('.popover-header-title');
+const popoverBackButton = document.querySelector('.popover-back-button');
+const popoverCloseButton = document.querySelector('.popover-close-button');
 const server_buttons = document.querySelectorAll('.server-grid button');
 
 // Utility Functions
@@ -115,9 +117,11 @@ async function fetchTMDBData(params) {
             result.seasons = [];
             for (const season of seasons) {
                 result[season.season_number] = season.episode_count;
-                result.seasons.push(season.season_number);
+                // Exclude Season 0 (Specials) from the list
+                if (season.season_number !== 0) {
+                    result.seasons.push(season.season_number);
+                }
             }
-            console.log(result);
         } else {
             throw new Error('Invalid type specified');
         }
@@ -177,17 +181,19 @@ async function fetchEpSelectionData(params, tmdbData) {
 }
 
 // Episode Selection Popover show: seasons list
-function showSeasons() {
+function showSeasons(tvShowTitle) {
     seasonsList.style.display = 'block';
     episodesList.style.display = 'none';
-    backButton.style.display = 'none';
+    popoverBackButton.style.display = 'none';
+    popoverTitle.innerText = tvShowTitle;
 }
 
 // Episode Selection Popover show: episodes list
-function showEpisodes() {
+function showEpisodes(seasonName) {
     seasonsList.style.display = 'none';
     episodesList.style.display = 'block';
-    backButton.style.display = 'block';
+    popoverBackButton.style.display = 'block';
+    popoverTitle.innerText = seasonName;
 }
 
 // Load Popover container with seasons and episodes 
@@ -197,7 +203,7 @@ async function loadPopoverSelectEpisode(params, tmdbData) {
 
     // Populate seasons list
     seasonsList.innerHTML = tmdbData.seasons.map(season => `
-        <li data-season="${season}">Season ${season}</li>
+        <li data-season="${season}">${epSelectionData[season].name}</li>
     `).join('');
 
     // Handle season click
@@ -207,10 +213,10 @@ async function loadPopoverSelectEpisode(params, tmdbData) {
             const episodes = epSelectionData[season].episodes;
             episodesList.innerHTML = episodes.map(ep => `
                 <li data-season="${season}" data-episode="${ep.episode_number}">
-                    Episode ${ep.episode_number}: ${ep.name}
+                    E${ep.episode_number} - ${ep.name}
                 </li>
             `).join('');
-            showEpisodes();
+            showEpisodes(epSelectionData[season].name);
         }
     });
 
@@ -226,6 +232,7 @@ async function loadPopoverSelectEpisode(params, tmdbData) {
             window.location.href = currentUrl.toString();
         }
     });
+    showSeasons(tmdbData.title);
 }
 
 // Initialize popover data
@@ -284,10 +291,14 @@ window.onload = async () => {
             document.addEventListener('click', (e) => {
                 if (!popoverContainer.contains(e.target)) {
                     popoverContainer.classList.remove('active');
-                    showSeasons();
+                    showSeasons(tmdbData.title);
                 }
             });
-            await loadPopoverSelectEpisode(params, tmdbData);
+            // Show seasons list when click Back Button
+            popoverBackButton.addEventListener('click', (e) => {
+                showSeasons(tmdbData.title);
+            });
+            loadPopoverSelectEpisode(params, tmdbData); // dont await to not block the page load
             
         }
     } catch (error) {

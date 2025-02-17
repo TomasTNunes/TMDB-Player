@@ -219,38 +219,93 @@ body {
 
 .popover-content {
     visibility: hidden;
-    width: 300px;
-    background-color: #1f1f1f;
-    color: #ffffffe6;
+    width: 450px;
+    height: 492px;
+    background-color: #0D0D0D;
+    color: #ffffff;
     text-align: left;
     border-radius: 8px;
-    padding: 10px;
+    padding: 0;
     position: absolute;
     z-index: 1;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(-78%);
+    margin-top: 41px;
     opacity: 0;
-}
-
-.popover-content::before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #1f1f1f transparent;
+    font-size: 16px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    overflow: hidden;
+    /*border: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 .popover-container.active .popover-content {
     visibility: visible;
-    opacity: 1;
+    opacity: 0.97;
 }
 
+/* Header */
+.popover-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 20px; /* Gap between back button and title */
+    height: 36px;
+}
+
+.popover-back-button {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+.popover-header-title {
+    flex-grow: 1; /* Allow title to take up remaining space */
+    font-size: 18px;
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    white-space: nowrap; /* Prevent title from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if title is too long */
+}
+
+.popover-close-button {
+    cursor: pointer;
+    margin-left: auto; /* Push close button to the right */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+.popover-back-button:hover svg,
+.popover-close-button:hover svg {
+    transform: scale(1.3); /* Makes the SVG 20% bigger */
+}
+
+/* List Container */
+.popover-list-container {
+    height: calc(492px - 60px); /* Subtract header height from total height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Custom Scrollbar */
+.popover-list-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.popover-list-container::-webkit-scrollbar-track {
+    background: transparent; /* Make the track invisible */
+}
+
+.popover-list-container::-webkit-scrollbar-thumb {
+    background: #444; /* Thumb color */
+    border-radius: 4px;
+}
+
+.popover-list-container::-webkit-scrollbar-thumb:hover {
+    background: #666; /* Thumb color on hover */
+}
+
+/* List Styles */
 .popover-content ul {
     list-style: none;
     padding: 0;
@@ -258,30 +313,14 @@ body {
 }
 
 .popover-content ul li {
-    padding: 10px;
-    border-bottom: 1px solid #333;
+    padding: 12px 20px;
     cursor: pointer;
-}
-
-.popover-content ul li:last-child {
-    border-bottom: none;
+    height: 24px;
+    display: flex;
+    align-items: center;
 }
 
 .popover-content ul li:hover {
-    background-color: #333;
-}
-
-.back-button {
-    display: none;
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    color: #007BFF;
-    text-align: left;
-    border-bottom: 1px solid #333;
-}
-
-.back-button:hover {
     background-color: #333;
 }
 
@@ -357,5 +396,10 @@ body {
         width: 25px;
         height: 25px;
         transition: transform 0.2s ease;
+    }
+
+    .popover-content {
+        position: absolute;
+        transform: translateX(-80.5%);
     }
 }
