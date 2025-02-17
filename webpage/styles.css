@@ -284,7 +284,6 @@ body {
 .popover-list-container {
     height: calc(492px - 60px); /* Subtract header height from total height */
     overflow-y: auto; /* Enable vertical scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
 /* Custom Scrollbar */
@@ -399,7 +398,19 @@ body {
     }
 
     .popover-content {
-        position: absolute;
-        transform: translateX(-80.5%);
+        width: 70vw; /* Scales width */
+        height: calc(75vw * (492 / 450)); /* Maintains aspect ratio */
+        right: -47px; /* Keeps a fixed distance from the right side */
+        left: auto; /* Ensures it does not interfere with positioning */
+        transform: none; /* Remove translateX to avoid shifting issues */
+        font-size: 15px;
+    }
+
+    .popover-list-container {
+        height: calc(calc(75vw * (492 / 450)) - 36px - 12px - 12px); /* Subtract header height */
+    }
+
+    .popover-header-title {
+        font-size: 16px;
     }
 }

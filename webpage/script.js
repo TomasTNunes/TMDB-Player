@@ -1,6 +1,7 @@
 // Define the elements
 const iframe = document.getElementById('videoFrame');
 const title = document.getElementById('title');
+const server_buttons = document.querySelectorAll('.server-grid button');
 const nextEpButton = document.getElementById('nextep-button');
 const epSelectButton = document.querySelector('.epselect-button');
 const popoverContainer = document.querySelector('.popover-container');
@@ -10,7 +11,7 @@ const episodesList = document.querySelector('.episodes-list');
 const popoverTitle = document.querySelector('.popover-header-title');
 const popoverBackButton = document.querySelector('.popover-back-button');
 const popoverCloseButton = document.querySelector('.popover-close-button');
-const server_buttons = document.querySelectorAll('.server-grid button');
+const popoverListContainer = document.querySelector('.popover-list-container');
 
 // Utility Functions
 function getURLParams() {
@@ -186,6 +187,9 @@ function showSeasons(tvShowTitle) {
     episodesList.style.display = 'none';
     popoverBackButton.style.display = 'none';
     popoverTitle.innerText = tvShowTitle;
+    if (popoverListContainer) {
+        popoverListContainer.scrollTop = 0;
+    }
 }
 
 // Episode Selection Popover show: episodes list
@@ -194,6 +198,9 @@ function showEpisodes(seasonName) {
     episodesList.style.display = 'block';
     popoverBackButton.style.display = 'block';
     popoverTitle.innerText = seasonName;
+    if (popoverListContainer) {
+        popoverListContainer.scrollTop = 0;
+    }
 }
 
 // Load Popover container with seasons and episodes 
@@ -282,9 +289,13 @@ window.onload = async () => {
             epSelectButton.style.cursor = 'pointer';
             epSelectButton.style.visibility = 'visible';
             epSelectButton.disabled = false;
-            // Open popover when clicking the button
+            // Open popover in current season when clicking the button
             epSelectButton.addEventListener('click', (e) => {
                 e.stopPropagation();
+                const currentSeasonLi = seasonsList.querySelector(`li[data-season="${params.season}"]`);
+                if (currentSeasonLi) {
+                    currentSeasonLi.click();
+                }
                 popoverContainer.classList.toggle('active');
             });
             // Close popover when clicking outside
