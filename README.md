@@ -103,8 +103,10 @@ Here are some handy tips and tricks to enhance your experience with the extensio
 ### 3. Choose Your Default Streaming Server  
 - Customize your experience by selecting your preferred default server in the extension popup. This ensures your streaming webpage always opens with your chosen server.  
 
-### 4. Quick Navigation Back to TMDB
+### 4. Streaming Webpage Features
 - Clicking on the movie/tv show title on the streaming webpage will redirect you to the corresponding TMDB page, making it easier to switch between these two.
+- "Next Episode" button  will be available for TV shows, enabling users to continue watching the next episode in the series without interruption.
+- Clicking on the "Episode Selection" button will open a user-friendly popover, allowing viewers to choose their desired season and episode.
 
 ### 5. Android: App-Like Experience  
 - For a more seamless, app-like experience on Android, add the TMDB homepage to your device’s home screen. This allows quick access without opening a browser.  
@@ -150,6 +152,8 @@ If you have any questions, encounter issues, or have suggestions for improvement
 ![Streaming Servers](assets/screenshots/player_movie.png)
 
 ![Streaming Servers](assets/screenshots/player_show.png)
+
+![Streaming Servers](assets/screenshots/episodeSelection.png)
 
 ### Popup:
 
