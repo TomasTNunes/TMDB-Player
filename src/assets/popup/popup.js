@@ -39,16 +39,22 @@ serverSelect.addEventListener('change', () => {
 });
 
 // Open TMDB Website
-tmdbButton.addEventListener('click', () => {
-    window.open('https://www.themoviedb.org/', '_blank');
+document.addEventListener("DOMContentLoaded", () => {
+    tmdbButton.addEventListener('click', () => {
+        chrome.tabs.create({ url: 'https://www.themoviedb.org/' });
+    });
 });
 
 // Open GitHub Repository
-gitButton.addEventListener('click', () => {
-    window.open('https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player', '_blank');
+document.addEventListener("DOMContentLoaded", () => {
+    gitButton.addEventListener('click', () => {
+        chrome.tabs.create({ url: 'https://github.com/TomasTNunes/TMDB-Player/tree/master?tab=readme-ov-file#tmdb-player' });
+    });
 });
 
 // Open Bug Report Page
-bugButton.addEventListener('click', () => {
-    window.open('https://github.com/TomasTNunes/TMDB-Player/issues', '_blank');
+document.addEventListener("DOMContentLoaded", () => {
+    bugButton.addEventListener('click', () => {
+        chrome.tabs.create({ url: 'https://github.com/TomasTNunes/TMDB-Player/issues' });
+    });
 });
