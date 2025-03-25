@@ -7,6 +7,10 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 
 **Note:** Extension in Chrome Web Store is currently disabled. For Chrome and other Chromium (Brave, Opera, etc) browsers please follow [these steps](#for-chromium-based-browsers-chrome-edge-brave-opera-etc).
 
+<a href="https://www.producthunt.com/posts/tmdb-player?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tmdb&#0045;player" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=945353&theme=dark&t=1742915322076" alt="TMDB&#0032;Player - Watch&#0032;your&#0032;favorite&#0032;Movies&#0032;and&#0032;TV&#0032;Shows&#0032;for&#0032;free&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/products/tmdb-player?utm_source=badge-follow&utm_medium=badge&utm_souce=badge-tmdb&#0045;player" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1049060&theme=dark" alt="TMDB&#0032;Player - Watch&#0032;your&#0032;favorite&#0032;Movies&#0032;and&#0032;TV&#0032;Shows&#0032;for&#0032;free&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/products/tmdb-player/reviews?utm_source=badge-product_review&utm_medium=badge&utm_souce=badge-tmdb&#0045;player" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1049060&theme=dark" alt="TMDB&#0032;Player - Watch&#0032;your&#0032;favorite&#0032;Movies&#0032;and&#0032;TV&#0032;Shows&#0032;for&#0032;free&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ---
 
 ## Features
