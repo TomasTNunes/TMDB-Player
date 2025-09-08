@@ -67,7 +67,7 @@ function changeServer(serverNumber) {
             case 2: src = `https://moviesapi.club/movie/${params.id}`; break; // Bard
             case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break; // Xayah
             case 4: src = `https://player.videasy.net/movie/${params.id}`; break; // Ekko
-            case 5: src = `https://vidsrc.su/embed/movie/${params.id}`; break; // Naafiri
+            case 5: src = `https://vidfast.pro/movie/${params.id}`; break; // Naafiri
             case 6: src = `https://vidlink.pro/movie/${params.id}?title=true&poster=true&autoplay=false`; break; // Ryze
         }
     } else if (params.type === 'tv') {
@@ -76,7 +76,7 @@ function changeServer(serverNumber) {
             case 2: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break; // Bard
             case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break; // Xayah
             case 4: src = `https://player.videasy.net/tv/${params.id}/${params.season}/${params.episode}?nextEpisode=true&episodeSelector=true`; break; // Ekko
-            case 5: src = `https://vidsrc.su/embed/tv/${params.id}/${params.season}/${params.episode}`; break; // Naafiri
+            case 5: src = `https://vidfast.pro/tv/${params.id}/${params.season}/${params.episode}`; break; // Naafiri
             case 6: src = `https://vidlink.pro/tv/${params.id}/${params.season}/${params.episode}?title=true&poster=true&autoplay=false&nextbutton=true`; break; // Ryze
         }
     }
