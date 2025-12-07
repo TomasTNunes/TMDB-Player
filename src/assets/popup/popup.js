@@ -2,6 +2,7 @@
 
 // Get references to DOM elements
 const toggleButton = document.querySelector('.toggle input');
+const togglePerformance = document.querySelector('.toggle.performance input');
 const serverSelect = document.getElementById('server-select');
 const tmdbButton = document.getElementById('tmdb-button');
 const gitButton = document.getElementById('git-button');
@@ -9,9 +10,10 @@ const bugButton = document.getElementById('bug-button');
 
 // Load saved preferences when the popup is opened
 document.addEventListener('DOMContentLoaded', () => {
-    chrome.storage.sync.get(['isToggleActive', 'selectedServerNumber'], (data) => {
+    chrome.storage.sync.get(['isToggleActive', 'isPerformanceActive', 'selectedServerNumber'], (data) => {
         // Set the toggle button state
         toggleButton.checked = data.isToggleActive !== undefined ? data.isToggleActive : true; // Default to true
+        togglePerformance.checked = data.isPerformanceActive !== undefined ? data.isPerformanceActive : false;
 
         // Set the selected server based on the saved server number
         if (data.selectedServerNumber) {
@@ -30,6 +32,14 @@ toggleButton.addEventListener('change', () => {
     const isToggleActive = toggleButton.checked;
     chrome.storage.sync.set({ isToggleActive });
 });
+
+// Save performance stats state when changed
+togglePerformance.addEventListener('change', () => {
+    const isPerformanceActive = togglePerformance.checked;
+    chrome.storage.sync.set({ isPerformanceActive });
+});
+
+
 
 // Save selected server number when changed
 serverSelect.addEventListener('change', () => {

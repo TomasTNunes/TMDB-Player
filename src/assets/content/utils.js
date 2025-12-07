@@ -58,10 +58,11 @@ function isMobile() {
 // Function to Retireve saved preference from popup
 function savedPreferences() {
     return new Promise((resolve) => {
-        chrome.storage.sync.get(['isToggleActive', 'selectedServerNumber'], (data) => {
+        chrome.storage.sync.get(['isToggleActive', 'selectedServerNumber', 'isPerformanceActive'], (data) => {
             const isToggleActive = data.isToggleActive !== undefined ? data.isToggleActive : true;
             const selectedServerNumber = data.selectedServerNumber || '1';
-            resolve({ isToggleActive, selectedServerNumber });
+            const isPerformanceActive = data.isPerformanceActive !== undefined ? data.isPerformanceActive : false;
+            resolve({ isToggleActive, selectedServerNumber, isPerformanceActive });
         });
     });
 }

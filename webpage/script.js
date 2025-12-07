@@ -12,6 +12,18 @@ const popoverTitle = document.querySelector('.popover-header-title');
 const popoverBackButton = document.querySelector('.popover-back-button');
 const popoverCloseButton = document.querySelector('.popover-close-button');
 const popoverListContainer = document.querySelector('.popover-list-container');
+const serverUrlResolvers = {
+    1: (p) => p.type === 'movie' ? `https://vidsrc.cc/v3/embed/movie/${p.id}?autoPlay=false` : `https://vidsrc.cc/v3/embed/tv/${p.id}/${p.season}/${p.episode}?autoPlay=false`,
+    2: (p) => p.type === 'movie' ? `https://moviesapi.club/movie/${p.id}` : `https://moviesapi.club/tv/${p.id}-${p.season}-${p.episode}`,
+    3: (p) => p.type === 'movie' ? `https://vidsrc.me/embed/movie?tmdb=${p.id}` : `https://vidsrc.me/embed/tv?tmdb=${p.id}&season=${p.season}&episode=${p.episode}`,
+    4: (p) => p.type === 'movie' ? `https://player.videasy.net/movie/${p.id}` : `https://player.videasy.net/tv/${p.id}/${p.season}/${p.episode}?nextEpisode=true&episodeSelector=true`,
+    5: (p) => p.type === 'movie' ? `https://vidfast.pro/movie/${p.id}` : `https://vidfast.pro/tv/${p.id}/${p.season}/${p.episode}`,
+    6: (p) => p.type === 'movie' ? `https://vidlink.pro/movie/${p.id}?title=true&poster=true&autoplay=false` : `https://vidlink.pro/tv/${p.id}/${p.season}/${p.episode}?title=true&poster=true&autoplay=false&nextbutton=true`
+};
+function getServerURL(serverNumber, params) {
+    const f = serverUrlResolvers[serverNumber];
+    return f ? f(params) : '';
+}
 
 // Utility Functions
 function getURLParams() {
@@ -19,8 +31,11 @@ function getURLParams() {
     const type = params.get('type');
     const id = params.get('id');
     const server = params.get('server'); // Get the optional server parameter
+    const isPerformanceActive = params.get('isPerformanceActive');
 
-    const result = {};
+    const result = {
+        isPerformanceActive: isPerformanceActive === 'true'
+    };
 
     // Add server to the result if it exists
     if (server) {
@@ -60,32 +75,69 @@ function changeServer(serverNumber) {
 
     iframe.src = '';
 
-    let src = '';
-    if (params.type === 'movie') {
-        switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v2/embed/movie/${params.id}?autoPlay=false`; break; // Rakan
-            case 2: src = `https://moviesapi.club/movie/${params.id}`; break; // Bard
-            case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break; // Xayah
-            case 4: src = `https://player.videasy.net/movie/${params.id}`; break; // Ekko
-            case 5: src = `https://vidfast.pro/movie/${params.id}`; break; // Naafiri
-            case 6: src = `https://vidlink.pro/movie/${params.id}?title=true&poster=true&autoplay=false`; break; // Ryze
-        }
-    } else if (params.type === 'tv') {
-        switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v2/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break; // Rakan
-            case 2: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break; // Bard
-            case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break; // Xayah
-            case 4: src = `https://player.videasy.net/tv/${params.id}/${params.season}/${params.episode}?nextEpisode=true&episodeSelector=true`; break; // Ekko
-            case 5: src = `https://vidfast.pro/tv/${params.id}/${params.season}/${params.episode}`; break; // Naafiri
-            case 6: src = `https://vidlink.pro/tv/${params.id}/${params.season}/${params.episode}?title=true&poster=true&autoplay=false&nextbutton=true`; break; // Ryze
-        }
-    }
-
+    const src = getServerURL(serverNumber, params);
     iframe.src = src;
 
     // Highlight the selected server button
     server_buttons.forEach(button => button.classList.remove('selected'));
     document.getElementById(`server${serverNumber}`).classList.add('selected');
+}
+
+async function measureURL(url) {
+    const start = performance.now();
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 7000);
+    try {
+        const res = await fetch(url, {
+            method: 'HEAD',
+            cache: 'no-store',
+            redirect: 'follow',
+            credentials: 'include',
+            referrer: document.referrer || location.href,
+            signal: controller.signal
+        });
+        const end = performance.now();
+        clearTimeout(t);
+        if (res.type !== 'opaque') {
+            if (res.status >= 500 || !res.ok) {
+                return { ms: null, status: res.status };
+            }
+        }
+        return { ms: Math.round(end - start), status: res.type !== 'opaque' ? res.status : null };
+    } catch (_) {
+        clearTimeout(t);
+        const start2 = performance.now();
+        const controller2 = new AbortController();
+        const t2 = setTimeout(() => controller2.abort(), 7000);
+        try {
+            const res2 = await fetch(url, { method: 'GET', mode: 'no-cors', cache: 'no-store', redirect: 'follow', credentials: 'include', signal: controller2.signal });
+            const end2 = performance.now();
+            clearTimeout(t2);
+            return { ms: Math.round(end2 - start2), status: res2.type !== 'opaque' ? res2.status : null };
+        } catch (_) {
+            clearTimeout(t2);
+            return { ms: null, status: null };
+        }
+    }
+}
+
+async function testAllServers(params) {
+    const results = [];
+    for (const button of server_buttons) {
+        const id = parseInt(button.id.replace('server', ''));
+        const url = getServerURL(id, params);
+        const r = await measureURL(url);
+        const sp = document.getElementById(`server${id}-speed`);
+        if (r.ms === null) {
+            if (sp) sp.textContent = r.status ? `Error ${r.status}` : '';
+            button.remove();
+        } else {
+            if (sp) sp.textContent = `${r.ms} ms`;
+            results.push({ id, ms: r.ms });
+        }
+    }
+    results.sort((a, b) => a.ms - b.ms);
+    return results;
 }
 
 async function fetchTMDBData(params) {
@@ -325,4 +377,9 @@ window.onload = async () => {
     } else {
         changeServer(1);
     }
+    try {
+        if (params.isPerformanceActive) {
+            await testAllServers(params);
+        }
+    } catch (_) {}
 };

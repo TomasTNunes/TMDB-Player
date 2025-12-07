@@ -32,7 +32,7 @@
                 // Get Saved preferences
                 const preferences = await savedPreferences();
                 
-                const url = `https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}&server=${preferences.selectedServerNumber}`;
+                const url = `https://tmdbplayer.nunesnetwork.com/?type=movie&id=${movieid}&server=${preferences.selectedServerNumber}&isPerformanceActive=${preferences.isPerformanceActive}`;
                 
                 if (preferences.isToggleActive) {
                     window.open(url, '_blank'); // Opens in a new tab

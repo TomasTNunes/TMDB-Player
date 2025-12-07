@@ -211,6 +211,13 @@ body {
     color: #ffffffb3; /* Font color for server-label */
 }
 
+.server-speed {
+    font-size: 11px;
+    font-family: Arial;
+    margin-top: 4px;
+    color: #999;
+}
+
 /* Popover Styles */
 .popover-container {
     position: relative;
