@@ -22,7 +22,7 @@ const headers = {
 // Define Servers
 const serverUrlResolvers = {
     //1: (p) => p.type === 'movie' ? `https://vidsrc.cc/v2/embed/movie/${p.id}?autoPlay=false` : `https://vidsrc.cc/v2/embed/tv/${p.id}/${p.season}/${p.episode}?autoPlay=false`, //Rakan (vidsrc.cc)
-    1: (p) => p.type === 'movie' ? `https://vixsrc.to/movie/${p.id}?autoPlay=true` : `https://vixsrc.to/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true`, // Rakan (vixsrc.to)
+    1: (p) => p.type === 'movie' ? `https://vixsrc.to/movie/${p.id}?autoPlay=true&lang=en` : `https://vixsrc.to/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true&lang=en`, // Rakan (vixsrc.to)
     2: (p) => p.type === 'movie' ? `https://moviesapi.to/movie/${p.id}` : `https://moviesapi.to/tv/${p.id}-${p.season}-${p.episode}`, // Bard
     3: (p) => p.type === 'movie' ? `https://vidsrc.me/embed/movie?tmdb=${p.id}&autoplay=1` : `https://vidsrc.me/embed/tv?tmdb=${p.id}&season=${p.season}&episode=${p.episode}&autoplay=1`, // Xayah
     4: (p) => p.type === 'movie' ? `https://player.videasy.net/movie/${p.id}` : `https://player.videasy.net/tv/${p.id}/${p.season}/${p.episode}?nextEpisode=true&episodeSelector=true`, // Ekko
