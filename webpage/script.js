@@ -13,6 +13,27 @@ const popoverBackButton = document.querySelector('.popover-back-button');
 const popoverCloseButton = document.querySelector('.popover-close-button');
 const popoverListContainer = document.querySelector('.popover-list-container');
 
+// Define headers for TMDB API requests
+const headers = {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTk1NzRmZDcxMjRkNmI5ZTUyNjA4ZWEzNWQ2NzdiNCIsIm5iZiI6MTczNzU5MDQ2NC4zMjUsInN1YiI6IjY3OTE4NmMwZThiNjdmZjgzM2ZhNjM4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kWqK74FSN41PZO7_ENZelydTtX0u2g6dCkAW0vFs4jU`,
+        'accept': 'application/json'
+    };
+
+// Define Servers
+const serverUrlResolvers = {
+    //1: (p) => p.type === 'movie' ? `https://vidsrc.cc/v2/embed/movie/${p.id}?autoPlay=false` : `https://vidsrc.cc/v2/embed/tv/${p.id}/${p.season}/${p.episode}?autoPlay=false`, //Rakan (vidsrc.cc)
+    1: (p) => p.type === 'movie' ? `https://vixsrc.to/movie/${p.id}?autoPlay=true&lang=en` : `https://vixsrc.to/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true&lang=en`, // Rakan (vixsrc.to)
+    2: (p) => p.type === 'movie' ? `https://moviesapi.to/movie/${p.id}` : `https://moviesapi.to/tv/${p.id}-${p.season}-${p.episode}`, // Bard
+    3: (p) => p.type === 'movie' ? `https://vidsrc.me/embed/movie?tmdb=${p.id}&autoplay=1` : `https://vidsrc.me/embed/tv?tmdb=${p.id}&season=${p.season}&episode=${p.episode}&autoplay=1`, // Xayah
+    4: (p) => p.type === 'movie' ? `https://player.videasy.net/movie/${p.id}` : `https://player.videasy.net/tv/${p.id}/${p.season}/${p.episode}?nextEpisode=true&episodeSelector=true`, // Ekko
+    5: (p) => p.type === 'movie' ? `https://vidfast.pro/movie/${p.id}?autoPlay=true` : `https://vidfast.pro/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true`, // Naafiri
+    6: (p) => p.type === 'movie' ? `https://vidlink.pro/movie/${p.id}?title=true&poster=true&autoplay=true` : `https://vidlink.pro/tv/${p.id}/${p.season}/${p.episode}?title=true&poster=true&autoplay=true&nextbutton=true` // Ryze
+};
+function getServerURL(serverNumber, params) {
+    const f = serverUrlResolvers[serverNumber];
+    return f ? f(params) : '';
+}
+
 // Utility Functions
 function getURLParams() {
     const params = new URLSearchParams(window.location.search);
@@ -59,28 +80,7 @@ function changeServer(serverNumber) {
     if (!params) return;
 
     iframe.src = '';
-
-    let src = '';
-    if (params.type === 'movie') {
-        switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v3/embed/movie/${params.id}?autoPlay=false`; break; // Rakan
-            case 2: src = `https://moviesapi.club/movie/${params.id}`; break; // Bard
-            case 3: src = `https://vidsrc.me/embed/movie?tmdb=${params.id}`; break; // Xayah
-            case 4: src = `https://player.videasy.net/movie/${params.id}`; break; // Ekko
-            case 5: src = `https://vidsrc.su/embed/movie/${params.id}`; break; // Naafiri
-            case 6: src = `https://vidlink.pro/movie/${params.id}?title=true&poster=true&autoplay=false`; break; // Ryze
-        }
-    } else if (params.type === 'tv') {
-        switch (serverNumber) {
-            case 1: src = `https://vidsrc.cc/v3/embed/tv/${params.id}/${params.season}/${params.episode}?autoPlay=false`; break; // Rakan
-            case 2: src = `https://moviesapi.club/tv/${params.id}-${params.season}-${params.episode}`; break; // Bard
-            case 3: src = `https://vidsrc.me/embed/tv?tmdb=${params.id}&season=${params.season}&episode=${params.episode}`; break; // Xayah
-            case 4: src = `https://player.videasy.net/tv/${params.id}/${params.season}/${params.episode}?nextEpisode=true&episodeSelector=true`; break; // Ekko
-            case 5: src = `https://vidsrc.su/embed/tv/${params.id}/${params.season}/${params.episode}`; break; // Naafiri
-            case 6: src = `https://vidlink.pro/tv/${params.id}/${params.season}/${params.episode}?title=true&poster=true&autoplay=false&nextbutton=true`; break; // Ryze
-        }
-    }
-
+    const src = getServerURL(serverNumber, params);
     iframe.src = src;
 
     // Highlight the selected server button
@@ -93,10 +93,6 @@ async function fetchTMDBData(params) {
 
     try {
         let url;
-        const headers = {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTk1NzRmZDcxMjRkNmI5ZTUyNjA4ZWEzNWQ2NzdiNCIsIm5iZiI6MTczNzU5MDQ2NC4zMjUsInN1YiI6IjY3OTE4NmMwZThiNjdmZjgzM2ZhNjM4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kWqK74FSN41PZO7_ENZelydTtX0u2g6dCkAW0vFs4jU`,
-            'accept': 'application/json'
-        };
 
         if (params.type === 'movie') {
             url = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`;
@@ -149,10 +145,6 @@ function getNextEp(currentSeason, currentEpisode, tmdbData) {
 async function fetchEpSelectionData(params, tmdbData) {
     const result = {};
     let url;
-    const headers = {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTk1NzRmZDcxMjRkNmI5ZTUyNjA4ZWEzNWQ2NzdiNCIsIm5iZiI6MTczNzU5MDQ2NC4zMjUsInN1YiI6IjY3OTE4NmMwZThiNjdmZjgzM2ZhNjM4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kWqK74FSN41PZO7_ENZelydTtX0u2g6dCkAW0vFs4jU`,
-        'accept': 'application/json'
-    };
 
     for (const season of tmdbData.seasons) {
         url = `https://api.themoviedb.org/3/tv/${params.id}/season/${season}?language=en-US`;
