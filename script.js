@@ -25,7 +25,7 @@ const serverUrlResolvers = {
     1: (p) => p.type === 'movie' ? `https://vixsrc.to/movie/${p.id}?autoPlay=true&lang=en` : `https://vixsrc.to/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true&lang=en`, // Rakan (vixsrc.to)
     2: (p) => p.type === 'movie' ? `https://moviesapi.to/movie/${p.id}` : `https://moviesapi.to/tv/${p.id}-${p.season}-${p.episode}`, // Bard
     3: (p) => p.type === 'movie' ? `https://vidsrc-embed.ru/embed/movie?tmdb=${p.id}&autoplay=1` : `https://vidsrc-embed.ru/embed/tv?tmdb=${p.id}&season=${p.season}&episode=${p.episode}&autoplay=1`, // Xayah
-    4: (p) => p.type === 'movie' ? `https://player.videasy.net/movie/${p.id}` : `https://player.videasy.net/tv/${p.id}/${p.season}/${p.episode}?nextEpisode=true&episodeSelector=true`, // Ekko
+    4: (p) => p.type === 'movie' ? `https://cinesrc.st/embed/movie/${p.id}?autoPlay=true` : `https://cinesrc.st/embed/tv/${p.id}?s=${p.season}&e=${p.episode}&autoPlay=true`, // Ekko
     5: (p) => p.type === 'movie' ? `https://vidfast.vc/movie/${p.id}?autoPlay=true` : `https://vidfast.vc/tv/${p.id}/${p.season}/${p.episode}?autoPlay=true`, // Naafiri
     6: (p) => p.type === 'movie' ? `https://vidlink.pro/movie/${p.id}?title=true&poster=true&autoplay=true` : `https://vidlink.pro/tv/${p.id}/${p.season}/${p.episode}?title=true&poster=true&autoplay=true&nextbutton=true` // Ryze
 };
