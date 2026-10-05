@@ -32,18 +32,25 @@ body {
     align-items: center;
     justify-content: space-between; /* Ensure space between header-buttons and nextep-button */
     height: 40px; /* Fixed height for player-header */
+    position: relative; /* Anchor for the review menu */
 }
 
 .header-buttons {
     display: flex;
+    flex: 1 1 0; /* Both sides share the free space equally, keeping the title centered */
     align-items: center;
     gap: 16px; /* Add some spacing between the buttons */
+}
+
+.header-buttons-right {
+    justify-content: flex-end;
 }
 
 .git-button,
 .bug-button,
 .nextep-button,
-.epselect-button {
+.epselect-button,
+.review-button {
     width: 40px;
     height: 40px;
     font-size: 13px;
@@ -74,6 +81,7 @@ body {
 }
 
 .show-title {
+    flex: 0 1 auto;
     font-size: 20px;
     font-family: 'Ubuntu', 'El Messiri', sans-serif;
     margin: 0;
@@ -91,20 +99,32 @@ body {
 }
 
 .nextep-button,
-.epselect-button {
+.epselect-button,
+.review-button {
     cursor: default;
     visibility: hidden;
 }
 
+.nextep-button {
+    display: none; /* TV only, shown by script */
+}
+
 .nextep-button svg,
-.epselect-button svg {
+.epselect-button svg,
+.review-button svg {
     width: 40px;
     height: 40px;
     transition: transform 0.2s ease;
 }
 
+.review-button svg {
+    width: 34px; /* Star outline reads larger than the filled icons */
+    height: 34px;
+}
+
 .nextep-button:hover svg,
-.epselect-button:hover svg {
+.epselect-button:hover svg,
+.review-button:hover svg {
     transform: scale(1.3); /* Makes the SVG 20% bigger */
 }
 
@@ -214,7 +234,7 @@ body {
 /* Popover Styles */
 .popover-container {
     position: relative;
-    display: inline-block;
+    display: none; /* TV only, shown by script */
 }
 
 .popover-content {
@@ -344,6 +364,83 @@ body {
     overflow: hidden;
 }
 
+/* Review Menu Styles */
+.review-menu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute; /* Positioned relative to player-header, aligned with the episode popover */
+    z-index: 2;
+    top: calc(100% + 29px);
+    right: 13px;
+    width: 290px;
+    max-width: calc(100vw - 64px);
+    padding: 8px 0;
+    background-color: #0D0D0D;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    font-family: 'Ubuntu', 'El Messiri', sans-serif;
+    transform: translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.review-container.active .review-menu {
+    visibility: visible;
+    opacity: 0.97;
+    transform: translateY(0);
+}
+
+.review-menu-title {
+    padding: 8px 20px 10px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #ffffffb3;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.review-list a:hover,
+.review-list a:focus-visible {
+    background-color: #333;
+    outline: none;
+}
+
+.review-site-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.review-site-name {
+    flex-grow: 1;
+    min-width: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add ellipsis if name is too long */
+    overflow: hidden;
+}
+
+.review-site-level {
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
 @media (max-width: 1200px) {
     body {
         overflow-y: auto; /* Allow the entire webpage to scroll vertically */
@@ -397,20 +494,30 @@ body {
     .show-title {
         font-size: 16px;
         max-width: 50%;
+        margin: 0 8px;
     }
 
     .header-buttons {
         gap: 4px;
     }
-    
+
+    .git-button,
+    .bug-button,
+    .nextep-button,
+    .epselect-button,
+    .review-button {
+        width: 32px; /* Smaller buttons leave room for the title */
+        height: 32px;
+    }
+
     .git-button i {
         font-size: 30px; /* Adjusted GitHub icon size */
     }
-    
+
     .bug-button {
         font-size: 20px;
     }
-    
+
     .nextep-button svg,
     .epselect-button svg {
         width: 25px;
@@ -418,13 +525,42 @@ body {
         transition: transform 0.2s ease;
     }
 
+    .review-button svg {
+        width: 23px;
+        height: 23px;
+    }
+
     .popover-content {
         width: 70vw; /* Scales width */
         height: calc(75vw * (492 / 450)); /* Maintains aspect ratio */
-        right: -47px; /* Keeps a fixed distance from the right side */
+        right: -39px; /* Keeps a fixed distance from the right side */
         left: auto; /* Ensures it does not interfere with positioning */
         transform: none; /* Remove translateX to avoid shifting issues */
+        margin-top: 45px; /* Same vertical position as with 40px buttons */
         font-size: 15px;
+    }
+
+    .review-menu {
+        width: 260px;
+    }
+
+    .review-list a {
+        gap: 12px;
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+
+    .review-menu-title {
+        padding: 6px 16px 8px;
+    }
+
+    .review-site-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .review-site-level {
+        font-size: 12px;
     }
 
     .popover-list-container {

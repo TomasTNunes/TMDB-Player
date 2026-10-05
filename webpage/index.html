@@ -24,7 +24,20 @@
                     <a href="https://github.com/TomasTNunes/TMDB-Player/issues" target="_blank" class="bug-button" title="Report Bug">🐛</a>
                 </div>
                 <h2 class="show-title" id="title"></h2>
-                <div class="header-buttons">
+                <div class="header-buttons header-buttons-right">
+                    <div class="review-container">
+                        <button class="review-button" title="Rate & Review" id="review-button" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                                <path d="M12 2.8l2.84 5.76 6.36.92-4.6 4.49 1.09 6.33L12 17.31l-5.69 2.99 1.09-6.33-4.6-4.49 6.36-.92L12 2.8z"
+                                    stroke="white" stroke-width="2" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="review-menu">
+                            <div class="review-menu-title">RATE & REVIEW ON</div>
+                            <ul class="review-list"></ul>
+                        </div>
+                    </div>
                     <div class="popover-container">
                         <button class="epselect-button" title="Episode Selection" id="epselect-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="EpisodesStandard" aria-hidden="true">

@@ -18,6 +18,7 @@ TMDB Player is a browser extension designed to enhance your movie and TV show ex
 - **Custom Play Button:** Automatically adds a custom play button next to the existing TMDB "Play Trailer" button when viewing a movie or TV show page.
 - **Free Streaming:** Opens a new tab with a webpage to stream the selected movie or TV show.
 - **Multiple Streaming Servers:** Choose from different video streaming servers to ensure the best possible streaming experience.
+- **Rate & Review:** Open the movie, or the exact TV episode, on IMDb, Letterboxd, Rotten Tomatoes, Serializd, Metacritic, Trakt or TMDB straight from the player to log and review it.
 - **Minimal Ads:** While the TMDB site and certain servers on the player webpage are ad-free, others may display minimal ads. For an uninterrupted experience, using an ad blocker is recommended.
 
 ---
